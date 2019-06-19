@@ -1,0 +1,9 @@
+<div class="loginBox">
+  <h1>Hello!</h1>
+  <p>You must login to continue.</p>
+  <form action="#" class="loginBox__form">
+    <input type="text" placeholder={{loginPlaceholder}} (focus)="loginPlaceholder=''" (focusout)="loginPlaceholder='Login'" class="loginBox__input loginBox__input--login">
+    <input type="password" placeholder={{passwordPlaceholder}} (focus)="passwordPlaceholder=''" (focusout)="passwordPlaceholder='Password'" class="loginBox__input loginBox__input--password">
+    <button class="loginBox__button" (click)="validateUser()">Login</button>
+  </form>
+</div>
