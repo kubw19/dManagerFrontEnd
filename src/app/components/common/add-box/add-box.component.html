@@ -1,0 +1,9 @@
+<div *ngIf="shown" class="background">
+  <div class="addBox">
+    <div class="addBox__header">
+      <img (click)="toggle()" class="addBox__close" src="assets/icons/close.svg">
+      <h1>{{boxName}}</h1>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>

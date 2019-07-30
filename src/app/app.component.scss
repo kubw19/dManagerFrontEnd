@@ -1,0 +1,54 @@
+.app {
+    background-color: #F2F2F2;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    font-family: 'Ubuntu', sans-serif;
+    height: 15vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    border-bottom: solid 1px #cacaca;
+
+    &__content{
+        width: 80vw;
+        display: flex;
+        justify-content: space-between;
+
+        .rightBar{
+            width: 25vw;
+            border-right: solid black 6px;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            //justify-content: center;
+
+            .today{
+                margin: 0;
+                margin-top: 5px;
+                padding: 0;
+            }
+
+            .hello{
+                i{
+                    margin-left: 10px;
+                }
+                padding: 0 ;
+                margin: 0;
+                font-weight: bold;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+.content {
+    width: 80vw;
+    height: 75vh;
+    margin: 0 auto;
+    margin-top: 5vh;
+    //box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+}

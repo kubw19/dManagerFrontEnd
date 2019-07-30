@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="363.307" height="68" viewBox="0 0 363.307 68">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #bb0a21;
+        font-size: 60px;
+        font-family: Ubuntu-Regular, Ubuntu;
+        letter-spacing: 0.03em;
+        opacity: 0.6;
+      }
+
+      .cls-4 {
+        fill: #4ad958;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect class="cls-1" width="363.307" height="68"/>
+    </clipPath>
+  </defs>
+  <g id="Logo" class="cls-2">
+    <text id="dManager" class="cls-3" transform="translate(145 56)"><tspan x="-144.33" y="0">dManager</tspan></text>
+    <path id="Path_1" data-name="Path 1" d="M6,0c3.314,0,6,3.039,6,6.788V49.777c0,3.749-2.686,6.788-6,6.788s-6-3.039-6-6.788V6.788C0,3.039,2.686,0,6,0Z" transform="translate(326.402 8.857) rotate(25)"/>
+    <rect id="Rectangle_19" data-name="Rectangle 19" class="cls-4" width="12" height="59" rx="6" transform="translate(352.431 8.65) rotate(25)"/>
+  </g>
+</svg>

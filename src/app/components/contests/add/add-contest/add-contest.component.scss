@@ -1,0 +1,33 @@
+.content{
+    &__bars{
+        margin: 30px;
+        display: flex;
+    }
+
+    &__rows{
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 0;
+    }
+
+    &__cup{
+        flex-grow: 1;
+        flex-basis: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 80px;
+    }
+
+    &__row{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        input:not([TYPE=CHECKBOX]){
+            width: 200px;
+        }
+    }
+}

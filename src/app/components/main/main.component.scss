@@ -1,0 +1,37 @@
+h3{
+    font-size: 30px;
+    margin: 5px;
+    margin-bottom: 45px;
+    font-weight: normal;
+    padding: 0;
+}
+.bar{
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+    padding: 5vh;
+    font-family: 'Ubuntu', sans-serif;
+    height: 60vh;
+    ul{
+        list-style-type: none;
+        padding-left: 5px;
+        font-size: 20px;
+
+        li{
+            margin-bottom: 13px;
+        }
+    }
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 3rem;
+    //grid-auto-flow: dense;
+    
+}
+.leftBar{
+    
+}
+.rightBar{
+
+}

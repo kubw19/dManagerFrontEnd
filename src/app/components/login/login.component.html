@@ -1,9 +1,16 @@
-<div class="loginBox">
-  <h1>Hello!</h1>
-  <p>You must login to continue.</p>
-  <form action="#" class="loginBox__form">
-    <input type="text" placeholder={{loginPlaceholder}} (focus)="loginPlaceholder=''" (focusout)="loginPlaceholder='Login'" class="loginBox__input loginBox__input--login">
-    <input type="password" placeholder={{passwordPlaceholder}} (focus)="passwordPlaceholder=''" (focusout)="passwordPlaceholder='Password'" class="loginBox__input loginBox__input--password">
-    <button class="loginBox__button" (click)="validateUser()">Login</button>
-  </form>
+<div class="loginWindow">
+  <div class="loginBox">
+    <h1>Hello!</h1>
+    <p class="loginBox__info">You must login to continue.</p>
+    <form action="#" class="loginBox__form">
+      <input name='loginInput' type="text" [(ngModel)]="loginValue" placeholder={{loginPlaceholder}}
+        (focus)="loginPlaceholder=''" (focusout)="loginPlaceholder='Login'"
+        class="loginBox__input loginBox__input--login">
+      <input name='passwordInput' type="password" [(ngModel)]="passwordValue" placeholder={{passwordPlaceholder}}
+        (focus)="passwordPlaceholder=''" (focusout)="passwordPlaceholder='Password'"
+        class="loginBox__input loginBox__input--password">
+      <p *ngIf="incorrectData" class="loginBox__incorrectData">Incorrect login data!</p>
+      <button class="loginBox__button" (click)="validateUser()">Login</button>
+    </form>
+  </div>
 </div>

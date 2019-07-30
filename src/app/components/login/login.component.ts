@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from '../../services/login.service'
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-login',
@@ -8,15 +10,24 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   loginPlaceholder:string = "Login"
   passwordPlaceholder:string = "Password"
+  loginValue: string
+  passwordValue: string
+
+  incorrectData: boolean
 
 
-  constructor() { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
 
   validateUser():void{
-    alert("Błędne dane!")
+    if(this.loginService.checkLogin(this.loginValue, this.passwordValue).id == 1){
+      this.incorrectData = true;
+      }
+    else{
+        this.incorrectData = false;
+    }
   }
 
 }

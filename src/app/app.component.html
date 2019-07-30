@@ -1,1 +1,17 @@
-<app-login></app-login>
+<div *ngIf="loginService.isLogged()" class="mainDiv">
+    <div class="app">
+        <div class="header">
+            <div class="header__content">
+                <img src="assets/images/Logo.svg" />
+                <div class="rightBar">
+                    <p class="hello">Hello, Tom!<i class="material-icons">keyboard_arrow_down</i></p>
+                    <p class="today">Today is Thursday, 11.07.2019</p></div>                
+            </div>
+        </div>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<app-login *ngIf="!loginService.isLogged()"></app-login>
