@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Ubuntu&display=swap');
+.no_group{
+    padding: 20px;
+    padding-bottom: 40px;
+    margin: 0 auto;
+    text-align: center;
+    color: rgb(204, 204, 204);
+}
+
+.groups{
+    &__group{
+        border: 1px solid #eee;
+        margin-bottom: 20px;
+        //padding: 10px;
+        padding-bottom: 20px;
+        transition: all ease 0.5s; 
+    }
+
+    &__noTeams{
+        margin-top: 20px;
+        text-align: center;
+        padding: 10px;
+        color: #eee;
+    }
+
+    &__manage{
+        text-align: center;
+        margin-top: 20px;
+        text-decoration: underline;
+    }
+
+    &__name{        
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1.2em;
+        //margin: 5px;
+        padding: 5px;
+        text-align: center;
+        background-color:rgb(132, 173, 190);
+        color: white;
+        //border-bottom: 1px solid rgb(245, 245, 245);
+    }
+
+    &__points, &__header{
+        text-align:center;
+        display: grid;
+        grid-template-columns: 20% 9% 9% 9% 9% 9% 9% 9% 17%;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+        
+        &--bold{
+            font-weight: bold;
+        }
+    }
+
+    &__header{
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+}

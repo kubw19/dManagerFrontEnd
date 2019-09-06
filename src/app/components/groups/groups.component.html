@@ -1,0 +1,32 @@
+<app-add-box #add [boxName]="'New Group'">
+  <app-add-group [phaseId]="phaseId" (cleanUp)="cleanUp"></app-add-group>
+</app-add-box>
+<p class="no_group" *ngIf="!groups">No groups available</p>
+<div class="groups__group" *ngFor="let group of groups">
+  <h4 class="groups__name">{{group.name}}</h4>
+  <div *ngIf="group.teams.length > 0"class="groups__header groups__header--bold">
+    <p>Team</p>
+    <p>M</p>
+    <p>W</p>
+    <p>L</p>
+    <p>R</p>
+    <p>B+</p>
+    <p>B-</p>
+    <p>BB</p>
+    <p>Points</p>
+  </div>
+
+  <div class="groups__points" *ngFor="let team of group.teams">
+    <p>{{team.country}}</p>
+    <p>{{team.M}}</p>
+    <p>{{team.W}}</p>
+    <p>{{team.P}}</p>
+    <p>{{team.R}}</p>
+    <p>{{team.BP}}</p>
+    <p>{{team.BM}}</p>
+    <p>{{team.Bilans}}</p>
+    <p>{{team.Points}}</p>
+  </div>
+  <p class="groups__noTeams" *ngIf="group.teams.length == 0">No teams</p>
+  <a routerLink="/group/{{group.groupId}}"><p class="groups__manage">Manage</p></a>
+</div>

@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ContestComponent } from './components/contest/contest.component'
 import { ContestsComponent } from './components/contests/contests.component'
 import { StadiumsComponent } from './components/menu/stadiums/stadiums.component'
+import { GroupMatchesComponent } from './components/group-matches/group-matches.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,9 @@ const routes: Routes = [
   },
   {
     path: 'contest/:id', component: ContestComponent
+  },
+  {
+    path: 'group/:id', component: GroupMatchesComponent
   }
 ];
 

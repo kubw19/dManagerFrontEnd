@@ -1,3 +1,19 @@
-<p>
-  contest works!
-</p>
+<div class="contest__background">
+  <h1 class="contest__name">{{contest.contestName}}</h1>
+  <div class="contest__basicData">
+    <p>Date<br> <a class="contest__basicData--data">{{contest.date}}</a></p>
+    <p>Stadium<br> <a class="contest__basicData--data">{{contest.stadiumName}}</a></p>
+    <p>Top Scorer<br>
+      <a *ngIf="contest.shootKing != null" class="contest__basicData--data">
+        {{contest.shootKing[0].name}} {{contest.shootKing[0].surname}}
+        ({{contest.shootKing[0].country}}) -
+        {{contest.shootKing[0].goals}}
+      </a>
+      <a *ngIf="contest.shootKing == null" cclass="contest__basicData--data">
+        -
+      </a>
+
+    </p>
+  </div>  
+  <app-phases *ngIf="contest.contestId" [contestId]="contest.contestId"></app-phases>
+</div>

@@ -1,0 +1,11 @@
+<div class="content__bars">
+    <div *ngIf="incorrectData" class="content__error"><span>Please enter correct data!</span></div>
+    <form #addForm="ngForm" [formGroup]="newPhaseForm" class="content__rows">
+      <label for="name">Name</label>
+      <input #name id="name" formControlName="name" type="text" placeholder="Name">
+      <label for="groupPhase">Group phase</label>
+      <input name="groupPhase" formControlName="groupPhase" type="checkbox">
+      <button (click)="addToDB()">Add</button>
+    </form>
+    <div class="content__cup"><img src="assets/icons/cup.svg" /></div>
+  </div>

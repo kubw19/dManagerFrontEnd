@@ -1,0 +1,54 @@
+.phases {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 100px;
+
+  &__header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__addPlus {
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  &__onePhase {
+    box-sizing: border-box;
+    border: 1px #eee solid;
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    min-height: 50px;
+    margin-bottom: 40px;
+    //box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+  }
+
+  &__phaseName {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 400;
+  }
+
+  &__delete {
+    display: flex;
+    justify-content: flex-end;
+    a {
+      text-decoration: underline;
+      color: rgb(214, 214, 214);
+      transition: all 0.5s ease;
+
+      &:hover {
+        color: rgb(247, 83, 83);
+        cursor: pointer;
+      }
+    }
+  }
+}

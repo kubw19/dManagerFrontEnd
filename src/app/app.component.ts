@@ -7,7 +7,7 @@ import { LoginService } from './services/login.service'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'dManagerv2';
+  title = 'dManagev2';
 
   constructor(private loginService: LoginService){}
 

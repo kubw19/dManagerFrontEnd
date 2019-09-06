@@ -1,0 +1,34 @@
+.matches {
+  display: flex;
+
+  &__leftColumn {
+    width: 70%;
+  }
+  &__rightRolumn {
+    border-left: 2px solid rgb(226, 226, 226);
+    padding: 10px;
+    width: 30%;
+  }
+
+  &__score {
+    font-size: 0.9em;
+    color: gray;
+    margin-right: auto;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 1.5em;
+
+    a {
+      color: rgb(228, 107, 107);
+    }
+
+    li {
+      margin-bottom: 40px;
+      position: relative;
+    }
+  }
+}

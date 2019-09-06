@@ -1,6 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ComunicationService} from '../../../../../services/comunication.service'
-import {NgForm} from '@angular/forms';
+import {NgForm, FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { GetService } from '../../../../services/get.service'
+import { Stadium } from '../../../../classes/Stadium';
+import { PostService } from '../../../../services/post.service';
+import { Contest } from '../../../../classes/Contest';
 
 @Component({
   selector: 'app-add-contest',
@@ -8,19 +12,47 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./add-contest.component.scss']
 })
 export class AddContestComponent implements OnInit{
-  @ViewChild('addForm', {static: false}) addForm: NgForm
-  constructor(private comm: ComunicationService) { }
+  //@ViewChild('name', {static: false}) nameInput: ElementRef
+  constructor(private comm: ComunicationService, private getService: GetService, private postService: PostService) { }
   message: string
+  stadiums: Stadium[]
+  incorrectData: boolean = false
+  newContestForm = new FormGroup({
+    name: new FormControl("", Validators.minLength(1)),
+    date: new FormControl(),
+    stadiumId: new FormControl(null),
+    finished: new FormControl(false)
+  });
+
   ngOnInit() {
     this.comm.currentMessage.subscribe(message => this.processMessage(message))
+    this.getService.getStadiums().subscribe(stadiums => {this.stadiums = stadiums})
   }
 
   processMessage(message){
     if(message=='cleanUp')this.cleanUp()
   }
 
+  addContestResponse(message){
+    if(message.message=="Incorrect data")this.incorrectData = true
+    else{
+      this.comm.changeMessage("closePopUp");
+    }
+    this.comm.changeMessage("updateData");
+  }
+
+  addToDB(){
+    let formObj = this.newContestForm.getRawValue();
+    formObj.stadiumId = parseInt(formObj.stadiumId)
+    formObj.finished = (formObj.finished === true)
+    let serializedForm = JSON.stringify(formObj);
+    this.postService.postJSON(serializedForm, "/contests.php").subscribe(data => this.addContestResponse(data), err => {});
+
+  }
+
   cleanUp(){
-    //TODO tutaj czyszczenie formularza
+    this.newContestForm.reset()
+    this.incorrectData = false;
   }
 
 }

@@ -12,6 +12,12 @@ import { ContestComponent } from './components/contest/contest.component';
 import { StadiumsComponent } from './components/menu/stadiums/stadiums.component';
 import { AddContestComponent } from './components/contests/add/add-contest/add-contest.component';
 import { AddBoxComponent } from './components/common/add-box/add-box.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { PhasesComponent } from './components/phases/phases.component';
+import { AddPhaseComponent } from './components/phases/add-phase/add-phase.component';
+import { GroupsComponent } from './components/groups/groups.component';
+import { AddGroupComponent } from './components/groups/add-group/add-group.component';
+import { GroupMatchesComponent } from './components/group-matches/group-matches.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +28,19 @@ import { AddBoxComponent } from './components/common/add-box/add-box.component';
     ContestComponent,
     StadiumsComponent,
     AddContestComponent,
-    AddBoxComponent
+    AddBoxComponent,
+    PhasesComponent,
+    AddPhaseComponent,
+    GroupsComponent,
+    AddGroupComponent,
+    GroupMatchesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

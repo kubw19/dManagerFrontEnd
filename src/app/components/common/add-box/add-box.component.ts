@@ -14,8 +14,17 @@ export class AddBoxComponent implements OnInit {
 
   constructor(private comm: ComunicationService) { }
 
-  
-  
+  ngOnInit(){    
+    this.comm.currentMessage.subscribe(message => this.processMessage(message))
+  }
+
+  processMessage(message){
+    if(message=='closePopUp'){
+      this.shown = false;
+      this.comm.changeMessage("cleanUp")  
+    }
+  }
+
   toggle(): void{
     this.shown = !this.shown;
     if(this.shown)this.comm.changeMessage("cleanUp")  
