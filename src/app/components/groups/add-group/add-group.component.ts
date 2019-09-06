@@ -33,8 +33,8 @@ export class AddGroupComponent implements OnInit {
     if (message.message == "Incorrect data") this.incorrectData = true
     else {
       this.comm.changeMessage("closePopUp");
+      this.comm.changeMessage("updateData");
     }
-    this.comm.changeMessage("updateData");
   }
 
   addToDB() {

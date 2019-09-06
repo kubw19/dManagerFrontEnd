@@ -1,0 +1,35 @@
+.content{
+    &__error{
+        position: absolute;
+        top: 75px;
+        padding: 5px;
+        background-color: rgb(255, 165, 165);
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        height: 20px;
+        width: 280px;
+        color: rgb(99, 99, 99);
+    }
+    &__bars{
+        margin: 30px;
+        display: flex;
+    }
+
+    &__rows{
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 0;
+    }
+
+    &__cup{
+        flex-grow: 1;
+        flex-basis: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 80px;
+    }
+}

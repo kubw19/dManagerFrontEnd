@@ -46,4 +46,12 @@ export class GetService {
     return this.http.get<Object[]>(environment.apiUrl + "/matches.php?phaseId=" + id);
   }
 
+  getPlayersByCountry(id: number):Observable<Object[]>{
+    return this.http.get<Object[]>(environment.apiUrl + "/players.php?country=" + id);
+  }
+
+  getCountries():Observable<Object[]>{
+    return this.http.get<Object[]>(environment.apiUrl + "/countries.php");
+  }
+
 }

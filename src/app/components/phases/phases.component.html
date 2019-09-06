@@ -1,6 +1,7 @@
 <app-add-box #addPhase [boxName]="'New Phase'">
   <app-add-phase [contestId]="contestId" (cleanUp)="cleanUp" #contestBox></app-add-phase>
 </app-add-box>
+
 <div class="phases">
   <span class="phases__header">
     <h2 class="phases__title">Phases</h2>
@@ -10,11 +11,11 @@
   <div class="phases__onePhase" *ngFor="let phase of phases">
     <div class="phases__header">
       <h3 class="phases__phaseName">{{phase.name}}</h3>
-      <img (click)="add.add()" class="phases__addPlus" (click)="add.toggle()" src="assets/icons/plus.svg">
+      <img (click)="phase.groupPhase == 1 ? add.add() : add2.add()" class="phases__addPlus" src="assets/icons/plus.svg">
     </div>
     <div class="phases__phaseObjects">
-      <app-groups #add [hidden]="phase.groupPhase == 0" [groupPhase]="phase.groupPhase" [phaseId]="phase.phaseId">
-      </app-groups>
+      <app-groups #add [hidden]="phase.groupPhase == 0" [groupPhase]="phase.groupPhase" [phaseId]="phase.phaseId"></app-groups>
+      <app-nongroup-matches #add2 [hidden]="phase.groupPhase == 1" [groupId]="phase.groupId"></app-nongroup-matches>
       <div (click)="delete(phase.phaseId, phase.name)" class="phases__delete"><a>Delete phase</a></div>
     </div>
   </div>

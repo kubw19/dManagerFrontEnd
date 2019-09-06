@@ -1,0 +1,9 @@
+<app-add-box #add [boxName]="'New Match'">
+  <app-add-match [groupId]="groupId" (cleanUp)="cleanUp" #contestBox></app-add-match>
+</app-add-box>
+<div class="matches">
+  <p *ngIf="!matches" class="matches__empty">No matches</p>
+</div>
+<ul>
+  <li *ngFor="let match of matches">{{match.c1}} - {{match.c2}}</li>
+</ul>

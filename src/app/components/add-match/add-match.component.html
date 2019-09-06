@@ -1,0 +1,17 @@
+<div class="content__bars">
+  <div *ngIf="incorrectData" class="content__error"><span>Please enter correct data!</span></div>
+  <form #addForm="ngForm" [formGroup]="newMatchForm" class="content__rows">
+    <label for="team1">Team 1</label>
+    <select #team1 id="team1" formControlName="team1" type="text" placeholder="Team 1">
+      <option *ngFor="let country of countries" value="{{country.countryId}}">{{country.name}}</option>
+    </select>
+    <label for="team1">Team 2</label>
+    <select #team2 id="team2" formControlName="team2" type="text" placeholder="Team 2">
+      <option *ngFor="let country of countries" value="{{country.countryId}}">{{country.name}}</option>
+    </select>
+    <label for="played">Played</label>
+    <input name="played" formControlName="played" type="checkbox">
+    <button (click)="addToDB()">Add</button>
+  </form>
+  <div class="content__cup"><img src="assets/icons/cup.svg" /></div>
+</div>
