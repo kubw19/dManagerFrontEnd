@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import {Response} from '../classes/Response'
 import { Contest } from '../classes/Contest';
@@ -19,4 +19,5 @@ export class PostService {
   addContest(contest: Object):Observable<Object>{
     return this.http.post<Object>(environment.apiUrl + "/contests.php", contest);
   }
+
 }

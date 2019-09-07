@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Contest } from '../classes/Contest'
 import {Stadium} from '../classes/Stadium'
 import {environment} from '../../environments/environment'
+import { Player } from '../classes/Player';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,10 @@ export class GetService {
     return this.http.get<Stadium[]>(environment.apiUrl + "/stadiums.php");
   }
 
+  getMatch(id: number):Observable<Object>{
+    return this.http.get<Object>(environment.apiUrl + "/matches.php?matchId=" + id);
+  }
+
   getMatchesByGroup(id: number):Observable<Object[]>{
     return this.http.get<Object[]>(environment.apiUrl + "/matches.php?groupId=" + id);
   }
@@ -46,8 +51,8 @@ export class GetService {
     return this.http.get<Object[]>(environment.apiUrl + "/matches.php?phaseId=" + id);
   }
 
-  getPlayersByCountry(id: number):Observable<Object[]>{
-    return this.http.get<Object[]>(environment.apiUrl + "/players.php?country=" + id);
+  getPlayersByCountry(id: number):Observable<Player[]>{
+    return this.http.get<Player[]>(environment.apiUrl + "/players.php?countryId=" + id);
   }
 
   getCountries():Observable<Object[]>{

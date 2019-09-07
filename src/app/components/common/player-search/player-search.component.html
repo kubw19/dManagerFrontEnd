@@ -1,0 +1,13 @@
+<form class="addForm">
+    <input class ="input" autocomplete="off" name="searchText" (keyup)="newTrim(); showHints()" value=" " [(ngModel)]="searchText"  (blur)="hideHints()" type="text" placeholder="Player"/>
+    <button [disabled]="selectedPlayerBool==false" (click)="Add()" [ngClass]="{buttonActive: selectedPlayerBool==true}">
+      <i class="material-icons addIcon">add</i>
+    </button>
+    
+    <div *ngIf="hints" class="hints">
+      <ul>
+        <li (mousedown)="selectedPlayerId(player.playerId)"type="button" *ngFor="let player of playersTrimed" (click)="test()">{{player.name}} {{player.surname}}</li>
+      <li *ngIf="notInDB==true" style="border-bottom: 0">No results</li>
+      </ul>
+    </div>
+  </form>

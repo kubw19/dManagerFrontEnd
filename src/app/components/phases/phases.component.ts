@@ -25,7 +25,7 @@ export class PhasesComponent implements OnInit {
   }
 
   update(){
-    this.getService.getPhases(this.contestId).subscribe(data => {if(data.length > 0)this.phases = data})
+    this.getService.getPhases(this.contestId).subscribe(data => {this.phases = data})
   }
 
   delete(id:number, name: string){

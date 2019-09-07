@@ -20,6 +20,7 @@ import { AddGroupComponent } from './components/groups/add-group/add-group.compo
 import { MatchesComponent } from './components/matches/matches.component';
 import { AddMatchComponent } from './components/add-match/add-match.component';
 import { MatchComponent } from './components/match/match.component';
+import { PlayerSearchComponent } from './components/common/player-search/player-search.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatchComponent } from './components/match/match.component';
     AddGroupComponent,
     MatchesComponent,
     AddMatchComponent,
-    MatchComponent
+    MatchComponent,
+    PlayerSearchComponent
   ],
   imports: [
     BrowserModule,
