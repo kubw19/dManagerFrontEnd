@@ -1,0 +1,33 @@
+<app-add-box #add [boxName]="'New Match'">
+  <app-add-match [groupId]="groupId" (cleanUp)="cleanUp" #contestBox></app-add-match>
+</app-add-box>
+<div style="position: relative;" [ngClass]="{'background': separate}">
+  <div class="matches">
+    <div *ngIf="separate" class="matches__header">
+      <h1 class="matches__title">Match list</h1>
+      <img (click)="addButton.toggle()" class="matches__addPlus" src="assets/icons/plus.svg">
+    </div>
+    <p *ngIf="!matches" class="matches__empty">No matches</p>
+  </div>
+  <ul>
+    <a *ngFor="let match of matches" href="/match/{{match.matchId}}">
+      <li class="match">
+        <div class="match__team">
+          <p>{{match.c1}}</p>
+        </div>
+        <div class="match__score">
+          <img class="match__image" [ngClass]="{'match__image--grayed': match.played == 0}"
+            src="{{apiUrl}}/{{match.c1Image}}" />
+          <span *ngIf="match.played == 1">{{match.goalsD1}} - {{match.goalsD2}}</span>
+          <span *ngIf="match.played == 0">X - X</span>
+          <img class="match__image" [ngClass]="{'match__image--grayed': match.played == 0}"
+            src="{{apiUrl}}/{{match.c2Image}}" />
+        </div>
+        <div class="match__team">
+          <p>{{match.c2}}</p>
+        </div>
+      </li>
+    </a>
+  </ul>
+  <p class="matches__delete" *ngIf="separate" (click)="delete()">Delete group</p>
+</div>

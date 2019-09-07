@@ -13,7 +13,6 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   postJSON(json: string, url: string){
-    console.log(json)
     return this.http.post(environment.apiUrl + url, json);
   }
 

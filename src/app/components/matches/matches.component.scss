@@ -1,0 +1,73 @@
+.matches {
+  &__empty {
+    text-align: center;
+    margin: 20px;
+    color: #cccccc;
+  }
+  &__title {
+    font-size: 2em;
+  }
+  &__header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 60px;
+  }
+
+  &__addPlus {
+    cursor: pointer;
+  }
+
+  &__delete {
+    margin-top: 40px;    
+    position: absolute;
+    right: 5vh;
+    bottom: 5vh;
+    text-align: center;
+    text-decoration: underline;
+    color: rgb(214, 214, 214);
+    transition: all 0.5s ease;
+
+    &:hover {
+      color: rgb(247, 83, 83);
+      cursor: pointer;
+    }
+  }
+}
+
+.match {
+  width: 40%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  align-items: center;
+  &__team {
+    text-align: center;
+    color: rgb(100, 100, 100);
+  }
+  &__image {
+    margin: 0 20px;
+    height: 35px;
+    &--grayed {
+      filter: grayscale(100%);
+    }
+  }
+
+  &__score {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    align-items: center;
+  }
+}
+
+.background {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
+  padding: 5vh;
+  font-family: "Ubuntu", sans-serif;
+  min-height: 60vh;
+  margin-bottom: 50px;
+}

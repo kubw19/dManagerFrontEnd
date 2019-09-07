@@ -15,7 +15,7 @@
     </div>
     <div class="phases__phaseObjects">
       <app-groups #add [hidden]="phase.groupPhase == 0" [groupPhase]="phase.groupPhase" [phaseId]="phase.phaseId"></app-groups>
-      <app-nongroup-matches #add2 [hidden]="phase.groupPhase == 1" [groupId]="phase.groupId"></app-nongroup-matches>
+      <app-matches #add2 [hidden]="phase.groupPhase == 1" [groupId]="phase.groupId"></app-matches>
       <div (click)="delete(phase.phaseId, phase.name)" class="phases__delete"><a>Delete phase</a></div>
     </div>
   </div>

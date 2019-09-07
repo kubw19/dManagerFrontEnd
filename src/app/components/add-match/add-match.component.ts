@@ -35,7 +35,6 @@ export class AddMatchComponent implements OnInit {
   }
 
   addResponse(message){
-    console.log(message)
     if(message.message=="Incorrect data")this.incorrectData = true
     else{
       this.comm.changeMessage("closePopUp");

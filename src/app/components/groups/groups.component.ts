@@ -26,7 +26,7 @@ export class GroupsComponent implements OnInit {
   }
 
   update(){
-    this.getService.getGroups(this.phaseId).subscribe(data => {this.groups = data; console.log(data)})
+    this.getService.getGroups(this.phaseId).subscribe(data => this.groups = data)
   }
 
   public add(){

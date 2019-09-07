@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NongroupMatchesComponent } from './nongroup-matches.component';
+import { MatchesComponent } from './matches.component';
 
 describe('NongroupMatchesComponent', () => {
-  let component: NongroupMatchesComponent;
-  let fixture: ComponentFixture<NongroupMatchesComponent>;
+  let component: MatchesComponent;
+  let fixture: ComponentFixture<MatchesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NongroupMatchesComponent ]
+      declarations: [ MatchesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NongroupMatchesComponent);
+    fixture = TestBed.createComponent(MatchesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

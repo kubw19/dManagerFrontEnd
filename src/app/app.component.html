@@ -2,16 +2,21 @@
     <div class="app">
         <div class="header">
             <div class="header__content">
-                <img src="assets/images/Logo.svg" />
+                <a href="/">
+                    <img src="assets/images/Logo.svg" />
+                </a>
                 <div class="rightBar">
                     <p class="hello">Hello, Tom!<i class="material-icons">keyboard_arrow_down</i></p>
-                    <p class="today">Today is Thursday, 11.07.2019</p></div>                
+                    <p class="today">Today is Thursday, 11.07.2019</p>
+                </div>
             </div>
         </div>
         <div class="content">
             <router-outlet></router-outlet>
         </div>
     </div>
+    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a
+            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 </div>
 
 <app-login *ngIf="!loginService.isLogged()"></app-login>

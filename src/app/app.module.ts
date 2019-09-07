@@ -17,9 +17,9 @@ import { PhasesComponent } from './components/phases/phases.component';
 import { AddPhaseComponent } from './components/phases/add-phase/add-phase.component';
 import { GroupsComponent } from './components/groups/groups.component';
 import { AddGroupComponent } from './components/groups/add-group/add-group.component';
-import { GroupMatchesComponent } from './components/group-matches/group-matches.component';
-import { NongroupMatchesComponent } from './components/nongroup-matches/nongroup-matches.component';
+import { MatchesComponent } from './components/matches/matches.component';
 import { AddMatchComponent } from './components/add-match/add-match.component';
+import { MatchComponent } from './components/match/match.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +35,9 @@ import { AddMatchComponent } from './components/add-match/add-match.component';
     AddPhaseComponent,
     GroupsComponent,
     AddGroupComponent,
-    GroupMatchesComponent,
-    NongroupMatchesComponent,
-    AddMatchComponent
+    MatchesComponent,
+    AddMatchComponent,
+    MatchComponent
   ],
   imports: [
     BrowserModule,
