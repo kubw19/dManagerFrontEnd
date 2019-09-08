@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
+
+.footer {
+  font-family: "Ubuntu", sans-serif;
+  background-color: #3a4e58;
+  padding: 20px 0;
+  margin: 0 auto;
+  margin-top: 40px;
+  //width: 80vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  position: relative;
+
+  &__icons,
+  &__icons * {
+    margin-top: 10px;
+    color: rgb(175, 175, 175);
+    font-size: 0.9em;
+  }
+}

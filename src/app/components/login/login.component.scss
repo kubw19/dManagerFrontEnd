@@ -29,7 +29,7 @@
     }
 
     &__info{
-        margin-top: 10px;
+        margin: 30px 0;
         color: rgb(223, 223, 223);
         font-size: 25px;        
     }
@@ -41,6 +41,7 @@
     }
 
     &__input{
+        font-size: 15px;
         width:180px;
         padding: 5px;
         height: 25px;
@@ -68,6 +69,7 @@
         border: none;
         border-radius: 15px;
         transition: 0.5s all;
+        font-size: 15px;
 
         &:hover{
             cursor: pointer;
@@ -77,7 +79,7 @@
     }
     &__incorrectData{
         position: absolute;
-        bottom: 75px;
+        bottom: 105px;
         color: red;
         font-size: 15px;
     }

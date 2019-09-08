@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginValue: string
   passwordValue: string
 
-  incorrectData: boolean
+  incorrectData: boolean = false
 
 
   constructor(private loginService: LoginService, private router: Router) { }

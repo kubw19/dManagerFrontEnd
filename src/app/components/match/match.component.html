@@ -1,6 +1,12 @@
 <div class="background">
   <div class="match__header">
-    <h1>Contest: <span class="match__header--light">{{match.contest}}</span> | Phase: <span class="match__header--light">{{match.phase}}</span> <span *ngIf="match.group"> | Group: <span class="match__header--light">{{match.group}}</span></span></h1>
+    <h1>Contest: <span class="match__header--light">{{match?.contest}}</span> | Phase: <span
+        class="match__header--light">{{match?.phase}}</span> <span *ngIf="match?.group"> | Group: <span
+          class="match__header--light">{{match?.group}}</span></span></h1>
+  </div>
+  <div class="match__played">
+    <label>Played: </label>
+    <input type="checkbox" [(ngModel)]="played" (change)="changePlayed()" />
   </div>
 
   <div *ngIf="match" class="widget">
@@ -186,6 +192,8 @@
 
   </div>
 
-
+  <div class="match__delete">
+    <p (click)="deleteMatch()" class="match__delete">Delete match</p>
+  </div>
 
 </div>

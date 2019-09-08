@@ -1,30 +1,43 @@
-.contest{
-    &__name{
-        font-size: 2.5em;
-        color: rgb(0, 0, 0);
-        font-family: 'Noto Sans KR', sans-serif;
-        margin-bottom: 50px;
-    }
-    &__background{
-        background-color: #fff;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
-        padding: 5vh;
-        font-family: 'Ubuntu', sans-serif;
-        min-height: 60vh;
-        margin-bottom: 50px;
-    }
+.contest {
+  &__name {
+    font-size: 2.5em;
+    color: rgb(0, 0, 0);
+    font-family: "Noto Sans KR", sans-serif;
+    margin-bottom: 50px;
+  }
+  &__background {
+    background-color: #fff;
+    //box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
+    padding: 5vh;
+    font-family: "Ubuntu", sans-serif;
+    min-height: 60vh;
+    margin-bottom: 50px;
+    position: relative;
+  }
 
-    &__basicData{
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        text-align: center;
-        color: rgb(187, 187, 187);
+  &__basicData {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-align: center;
+    color: rgb(187, 187, 187);
 
-        &--data{
-            font-size: 1.7em;
-            color: rgb(0, 0, 0);
-            font-weight: bold;
-        }
+    &--data {
+      font-size: 1.7em;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
     }
+  }
+  &__delete {
+    position: absolute;
+    bottom: 5vh;
+    right: 5vh;
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(214, 214, 214);
+    transition: all 0.5s ease;
+    &:hover {
+      color: rgb(247, 83, 83);
+    }
+  }
 }

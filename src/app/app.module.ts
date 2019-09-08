@@ -21,6 +21,7 @@ import { MatchesComponent } from './components/matches/matches.component';
 import { AddMatchComponent } from './components/add-match/add-match.component';
 import { MatchComponent } from './components/match/match.component';
 import { PlayerSearchComponent } from './components/common/player-search/player-search.component';
+import { FooterComponent } from './components/common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PlayerSearchComponent } from './components/common/player-search/player-
     MatchesComponent,
     AddMatchComponent,
     MatchComponent,
-    PlayerSearchComponent
+    PlayerSearchComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

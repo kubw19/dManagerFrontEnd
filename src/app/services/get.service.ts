@@ -40,8 +40,8 @@ export class GetService {
     return this.http.get<Stadium[]>(environment.apiUrl + "/stadiums.php");
   }
 
-  getMatch(id: number):Observable<Object>{
-    return this.http.get<Object>(environment.apiUrl + "/matches.php?matchId=" + id);
+  getMatch(id: number):Observable<Match>{
+    return this.http.get<Match>(environment.apiUrl + "/matches.php?matchId=" + id);
   }
 
   getMatchesByGroup(id: number):Observable<Object[]>{
@@ -59,4 +59,8 @@ export class GetService {
     return this.http.get<Object[]>(environment.apiUrl + "/countries.php");
   }
 
+}
+export class Match{
+  played: Boolean
+  contestId: number
 }

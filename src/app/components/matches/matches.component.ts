@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { GetService } from '../../services/get.service';
 import { environment } from '../../../environments/environment'
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { ComunicationService } from 'src/services/comunication.service';
+import { ComunicationService } from '../../../services/comunication.service';
 import { DeleteService } from '../../services/delete.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-matches',
@@ -18,8 +19,22 @@ export class MatchesComponent implements OnInit {
   apiUrl: String
   matches: Object[]
   separate: Boolean
+  message: string
 
-  constructor(private getService: GetService, private route: ActivatedRoute, private router: Router, private comm: ComunicationService, private deleteService: DeleteService) { }
+  constructor(private location: Location, private getService: GetService, private route: ActivatedRoute, private router: Router, private comm: ComunicationService, private deleteService: DeleteService) { 
+    route.params.subscribe(val => {
+      //this.update();
+    });
+  }
+
+
+  goBack() {
+    if (window.history.length > 1) {
+      this.location.back()
+    } else {
+      this.router.navigate(['/home'])
+    }
+  }
 
   ngOnInit() {
     if (!this.groupId) {
@@ -32,28 +47,29 @@ export class MatchesComponent implements OnInit {
   }
 
   update(): void {
-    this.getService.getMatchesByGroup(this.groupId).subscribe(data => {if(data.length > 0)this.matches = data})
-    this.getService.getGroup(this.groupId).subscribe(data => {this.group = data; this.getPhase()})
+    this.getService.getMatchesByGroup(this.groupId).subscribe(data => {this.matches = data; console.log(this.matches) })
+    this.getService.getGroup(this.groupId).subscribe(data => { this.group = data; this.getPhase() })
   }
 
-  getPhase(){
-    if(this.group)this.getService.getPhase(this.group[0].phaseId).subscribe(data => this.phase = data)
+  getPhase() {
+    if (this.group) this.getService.getPhase(this.group[0].phaseId).subscribe(data => this.phase = data)
   }
 
   public add() {
     this.addButton.toggle();
   }
 
-  processMessage(message: string): void{
-    if(message=="updateData"){
+  processMessage(message: string): void {
+    if (message == "updateData") {
       this.update();
     }
   }
 
-  delete(){
-    if(confirm("Are you sure to delete this group?")){
-      this.deleteService.delete(this.groupId, "/groups.php").subscribe(data => this.update())
-      this.router.navigate(['/contest/' + this.phase[0].contestId])
+  delete() {
+    if (confirm("Are you sure to delete this group?")) {
+      this.deleteService.delete(this.groupId, "/groups.php").subscribe(() => {
+        this.router.navigate(['/contest/' + this.phase[0].contestId])
+      })
     }
   }
 

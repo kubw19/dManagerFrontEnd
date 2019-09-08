@@ -16,12 +16,10 @@
           <p>{{match.c1}}</p>
         </div>
         <div class="match__score">
-          <img class="match__image" [ngClass]="{'match__image--grayed': match.played == 0}"
-            src="{{apiUrl}}/{{match.c1Image}}" />
+          <img class="match__image" src="{{apiUrl}}/{{match.c1Image}}" />
           <span *ngIf="match.played == 1">{{match.goalsD1}} - {{match.goalsD2}}</span>
           <span *ngIf="match.played == 0">X - X</span>
-          <img class="match__image" [ngClass]="{'match__image--grayed': match.played == 0}"
-            src="{{apiUrl}}/{{match.c2Image}}" />
+          <img class="match__image" src="{{apiUrl}}/{{match.c2Image}}" />
         </div>
         <div class="match__team">
           <p>{{match.c2}}</p>
