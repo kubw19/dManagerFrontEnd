@@ -22,6 +22,7 @@ import { AddMatchComponent } from './components/add-match/add-match.component';
 import { MatchComponent } from './components/match/match.component';
 import { PlayerSearchComponent } from './components/common/player-search/player-search.component';
 import { FooterComponent } from './components/common/footer/footer.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { FooterComponent } from './components/common/footer/footer.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

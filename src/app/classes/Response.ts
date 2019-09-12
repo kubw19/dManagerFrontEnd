@@ -1,4 +1,8 @@
 export class Response{
-    id: number;
-    message: string;
+    message: string
+    details: string
+    authorized: boolean
+    apiKey: string
+    authKey: string
+    expire: string
 }
