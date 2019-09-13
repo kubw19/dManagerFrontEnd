@@ -23,6 +23,7 @@ import { MatchComponent } from './components/match/match.component';
 import { PlayerSearchComponent } from './components/common/player-search/player-search.component';
 import { FooterComponent } from './components/common/footer/footer.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,11 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [CookieService],
+  providers: [CookieService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
