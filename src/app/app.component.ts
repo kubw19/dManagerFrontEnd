@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from './services/login.service'
 
 @Component({
@@ -6,10 +6,14 @@ import { LoginService } from './services/login.service'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'dManagev2';
-
+  private logged: boolean
   constructor(private loginService: LoginService){}
+
+  ngOnInit(): void {
+    this.loginService.checkLogged.subscribe(data => this.logged = (data == "true"))
+  }
 
   
 

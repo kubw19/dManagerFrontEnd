@@ -21,7 +21,7 @@ export class MatchesComponent implements OnInit {
   separate: Boolean
   message: string
 
-  constructor(private location: Location, private getService: GetService, private route: ActivatedRoute, private router: Router, private comm: ComunicationService, private deleteService: DeleteService) { 
+  constructor(private location: Location, private getService: GetService, private route: ActivatedRoute, private router: Router, private comm: ComunicationService, private deleteService: DeleteService) {
     route.params.subscribe(val => {
       //this.update();
     });
@@ -47,12 +47,14 @@ export class MatchesComponent implements OnInit {
   }
 
   update(): void {
-    this.getService.getMatchesByGroup(this.groupId).subscribe(data => {this.matches = data; console.log(this.matches) })
+    this.getService.getMatchesByGroup(this.groupId).subscribe(data => {
+      Array.isArray(data) ? this.matches = data : this.matches = [];
+    })
     this.getService.getGroup(this.groupId).subscribe(data => { this.group = data; this.getPhase() })
   }
 
   getPhase() {
-    if (this.group) this.getService.getPhase(this.group[0].phaseId).subscribe(data => this.phase = data)
+    if (this.group[0]) this.getService.getPhase(this.group[0].phaseId).subscribe(data => this.phase = data)
   }
 
   public add() {

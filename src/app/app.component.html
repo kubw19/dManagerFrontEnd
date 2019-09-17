@@ -1,4 +1,4 @@
-<div *ngIf="loginService.isLogged()" class="mainDiv">
+<div *ngIf="logged" class="mainDiv">
     <div class="app">
         <div class="header">
             <div class="header__content">
@@ -18,4 +18,4 @@
     <app-footer></app-footer>
 </div>
 
-<app-login *ngIf="!loginService.isLogged()"></app-login>
+<app-login></app-login>

@@ -27,7 +27,7 @@ export class ContestsComponent implements OnInit {
   }
 
   update(){
-    this.getService.getContests().subscribe(contests => {this.contests = contests})
+    this.getService.getContests().subscribe(contests => {this.contests = contests; console.log(contests)})
   }
 
   cleanUp(){

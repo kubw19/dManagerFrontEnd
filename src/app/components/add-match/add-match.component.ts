@@ -49,7 +49,7 @@ export class AddMatchComponent implements OnInit {
     formObj.played = (formObj.played === true)
     formObj.groupId = parseInt(this.groupId.toString())
     let serializedForm = JSON.stringify(formObj);
-    this.postService.postJSON(serializedForm, "/matches.php").subscribe(data => this.addResponse(data), err => {});
+    this.postService.postJSON(serializedForm, "/matches.php").subscribe(data => this.addResponse(data), err => {this.addResponse(err.error)});
 
   }
 

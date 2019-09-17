@@ -7,7 +7,7 @@
     <h2 class="phases__title">Phases</h2>
     <img class="phases__addPlus" (click)="addPhase.toggle()" src="assets/icons/plus.svg">
   </span>
-  <p *ngIf="!phases">Phase list is empty!</p>
+  <p *ngIf="phases?.length == 0">Phase list is empty!</p>
   <div class="phases__onePhase" *ngFor="let phase of phases">
     <div class="phases__header">
       <h3 class="phases__phaseName">{{phase.name}}</h3>

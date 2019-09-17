@@ -1,7 +1,7 @@
 <app-add-box #add [boxName]="'New Group'">
   <app-add-group [phaseId]="phaseId" (cleanUp)="cleanUp"></app-add-group>
 </app-add-box>
-<p class="no_group" *ngIf="!groups">No groups available</p>
+<p class="no_group" *ngIf="groups?.length == 0">No groups available</p>
 <div class="groups__group" *ngFor="let group of groups">
   <h4 class="groups__name">{{group.name}}</h4>
   <div *ngIf="group.teams.length > 0"class="groups__header groups__header--bold">

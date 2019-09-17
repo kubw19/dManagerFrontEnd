@@ -47,7 +47,7 @@ export class AddPhaseComponent implements OnInit{
     formObj.groupPhase = (formObj.groupPhase === true)
     formObj.contestId = parseInt(this.contestId.toString())
     let serializedForm = JSON.stringify(formObj);
-    this.postService.postJSON(serializedForm, "/phases.php").subscribe(data => this.addContestResponse(data), err => {});
+    this.postService.postJSON(serializedForm, "/phases.php").subscribe(data => this.addContestResponse(data), err => {this.addContestResponse(err.error)});
 
   }
 

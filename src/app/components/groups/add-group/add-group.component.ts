@@ -41,7 +41,7 @@ export class AddGroupComponent implements OnInit {
     let formObj = this.newGroupForm.getRawValue();
     formObj.phaseId = parseInt(this.phaseId.toString())
     let serializedForm = JSON.stringify(formObj);
-    this.postService.postJSON(serializedForm, "/groups.php").subscribe(data => this.addContestResponse(data), err => { });
+    this.postService.postJSON(serializedForm, "/groups.php").subscribe(data => this.addContestResponse(data), err => {this.addContestResponse(err.error) });
 
   }
 

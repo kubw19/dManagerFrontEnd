@@ -1,4 +1,5 @@
-<div class="loginWindow">
+<div *ngIf="!logged && checkPerformed" class="loginWindow">
+  <p *ngIf="expired">Wygasła</p>
   <div class="loginBox">
     <h1>Hello!</h1>
     <p class="loginBox__info">You must login to continue.</p>

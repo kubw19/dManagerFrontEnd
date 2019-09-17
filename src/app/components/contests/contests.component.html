@@ -11,21 +11,21 @@
     <div *ngFor="let contest of contests" class="contest">
         <a routerLink="/contest/{{contest.contestId}}">
             <div class="contest__header">
-                <h1>{{ contest.contestName }}</h1>
+                <h1>{{ contest?.contestName }}</h1>
             </div>
             <ul>
                 <li>
-                    <p class="contest__date"><span class="contest--bold">Date:</span> {{contest.date}}</p>
+                    <p class="contest__date"><span class="contest--bold">Date:</span> {{contest?.date}}</p>
                 </li>
                 <li>
-                    <p class="contest__stadium"><span class="contest--bold">Stadium:</span> {{contest.stadiumName}}</p>
+                    <p class="contest__stadium"><span class="contest--bold">Stadium:</span> {{contest?.stadiumName}}</p>
                 </li>
 
                 <li>
                     <p class="header__topScorer"><span class="contest--bold">Top scorer:</span>
                         <span *ngIf="contest.shootKing">
-                            {{contest.shootKing[0].name}} {{contest.shootKing[0].surname}}
-                            ({{contest.shootKing[0].country}}) - {{contest.shootKing[0].goals}}
+                            {{contest?.shootKing[0]?.name}} {{contest?.shootKing[0]?.surname}}
+                            ({{contest?.shootKing[0]?.country}}) - {{contest?.shootKing[0]?.goals}}
                         </span>
                         <span *ngIf="!contest.shootKing">
                             -
