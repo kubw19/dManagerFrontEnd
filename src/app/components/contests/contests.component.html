@@ -7,7 +7,7 @@
     <img class="header__addPlus" (click)="contest.toggle()" src="assets/icons/plus.svg">
 </div>
 <div class="contests">
-    <p *ngIf="!contests">Brak dodanych turniejów!</p>
+    <p *ngIf="contests?.length == 0">Brak dodanych turniejów!</p>
     <div *ngFor="let contest of contests" class="contest">
         <a routerLink="/contest/{{contest.contestId}}">
             <div class="contest__header">
@@ -31,6 +31,15 @@
                             -
                         </span>
                     </p>
+                </li>
+                <li>
+                    <div class="contest__owners"><span class="contest--bold">Owners:</span>
+                        <div class="contest__owners--list">
+                            <a *ngFor="let user of contest?.users; let isLast=last">
+                                {{user?.login}}{{isLast ? '' : ', '}}
+                            </a>
+                        </div>
+                    </div>
                 </li>
             </ul>
             <div class="contest__state contest__state--finished" *ngIf="contest.finished==1">Zakonczony</div>
