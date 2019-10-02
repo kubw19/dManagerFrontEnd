@@ -24,6 +24,10 @@ import { PlayerSearchComponent } from './components/common/player-search/player-
 import { FooterComponent } from './components/common/footer/footer.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { ContestPlayersComponent } from './components/contest-players/contest-players.component';
+import { SearchBarComponent } from './components/common/search-bar/search-bar.component';
+import { InlineSVGModule } from 'ng-inline-svg';
+import { AddContestPlayerComponent } from './components/contest-players/add-contest-player/add-contest-player.component';
 
 @NgModule({
   declarations: [
@@ -43,14 +47,18 @@ import { AuthInterceptor } from './services/auth.interceptor';
     AddMatchComponent,
     MatchComponent,
     PlayerSearchComponent,
-    FooterComponent
+    FooterComponent,
+    ContestPlayersComponent,
+    SearchBarComponent,
+    AddContestPlayerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    InlineSVGModule.forRoot()
   ],
   providers: [CookieService, {
     provide: HTTP_INTERCEPTORS,

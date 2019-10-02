@@ -16,6 +16,7 @@
     </p>
   </div>
   <app-phases *ngIf="contest.contestId" [contestId]="contest.contestId"></app-phases>
+  <app-contest-players [contest]="contest" *ngIf="contestId" [contestId]="contestId"></app-contest-players>
   <div class="contest__delete">
     <p (click)="deleteContest()">Delete contest</p>
   </div>

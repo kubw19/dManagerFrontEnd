@@ -55,12 +55,25 @@ export class GetService {
     return this.http.get<Player[]>(environment.apiUrl + "/players.php?countryId=" + id);
   }
 
-  getCountries():Observable<Object[]>{
-    return this.http.get<Object[]>(environment.apiUrl + "/countries.php");
+  getCountries():Observable<Country[]>{
+    return this.http.get<Country[]>(environment.apiUrl + "/countries.php");
+  }
+
+  getCountriesAtContest(contest: number):Observable<Object[]>{
+    return this.http.get<Object[]>(environment.apiUrl + "/humanPlayers.php?contestId=" + contest);
+  }
+
+  getAllUsers():Observable<Object[]>{
+    return this.http.get<Object[]>(environment.apiUrl + "/users.php");
   }
 
 }
 export class Match{
   played: Boolean
   contestId: number
+}
+
+export class Country{
+  countryId: number
+  name: String
 }

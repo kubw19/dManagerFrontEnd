@@ -14,10 +14,10 @@
       <p>{{match?.c1}}</p>
     </div>
     <div class="widget__score">
-      <img class="widget__image" src="{{apiUrl}}/{{match?.c1Image}}" />
-      <span *ngIf="match.played == 1">{{match?.goalsD1}} - {{match?.goalsD2}}</span>
+      <img class="widget__image" src="{{apiUrl}}/{{match?.c1image}}" />
+      <span *ngIf="match.played == 1">{{match?.goalsd1}} - {{match?.goalsd2}}</span>
       <span *ngIf="match.played == 0">X - X</span>
-      <img class="widget__image" src="{{apiUrl}}/{{match?.c2Image}}" />
+      <img class="widget__image" src="{{apiUrl}}/{{match?.c2image}}" />
     </div>
     <div class="widget__team">
       <p>{{match?.c2}}</p>
@@ -28,20 +28,20 @@
 
   <div class="match__team1">
     <div class="match__teamName">
-      <img class="match__teamImage" src="{{apiUrl}}/{{match?.c1Image}}" />
-      <h2>{{match?.c1}} ({{match?.p1Name}} {{match?.p1Surname}})</h2>
+      <img class="match__teamImage" src="{{apiUrl}}/{{match?.c1image}}" />
+      <h2>{{match?.c1}} ({{match?.p1name}} {{match?.p1surname}})</h2>
     </div>
     <div class="match__statistics">
 
       <div class="match__statistic">
         <div class="match__statistic--title">
           <h3>Goals</h3>
-          <app-player-search *ngIf="match?.c1Id" [matchId]="match?.matchId" [type]="'GOAL'" [countryId]="match?.c1Id"
+          <app-player-search *ngIf="match?.c1id" [matchId]="match?.matchid" [type]="'GOAL'" [countryId]="match?.c1id"
             (updateRecords)="update()"></app-player-search>
         </div>
         <div class="match__statisticContent">
           <ul>
-            <li *ngFor="let goal of match?.goalsT1" id="{{goal.id}}">
+            <li *ngFor="let goal of match?.goalst1" id="{{goal.id}}">
               {{goal?.name}} {{goal?.surname}}
               <i (click)="deleteStatistic(goal.id)" class="material-icons deleteItem">
                 close
@@ -54,12 +54,12 @@
       <div class="match__statistic">
         <div class="match__statistic--title">
           <h3>Injuries</h3>
-          <app-player-search *ngIf="match?.c1Id" [matchId]="match?.matchId" [type]="'INJ'" [countryId]="match?.c1Id"
+          <app-player-search *ngIf="match?.c1id" [matchId]="match?.matchid" [type]="'INJ'" [countryId]="match?.c1id"
             (updateRecords)="update()"></app-player-search>
         </div>
         <div class="match__statisticContent">
           <ul>
-            <li *ngFor="let injury of match?.injuriesT1" id="{{injury.id}}">
+            <li *ngFor="let injury of match?.injuriest1" id="{{injury.id}}">
               {{injury?.name}} {{injury?.surname}}
               <i (click)="deleteStatistic(injury.id)" class="material-icons deleteItem">
                 close
@@ -72,12 +72,12 @@
       <div class="match__statistic">
         <div class="match__statistic--title">
           <h3>Yellow Cards</h3>
-          <app-player-search *ngIf="match?.c1Id" [matchId]="match?.matchId" [type]="'YEL'" [countryId]="match?.c1Id"
+          <app-player-search *ngIf="match?.c1id" [matchId]="match?.matchid" [type]="'YEL'" [countryId]="match?.c1id"
             (updateRecords)="update()"></app-player-search>
         </div>
         <div class="match__statisticContent">
           <ul>
-            <li *ngFor="let yellow of match?.yellowsT1" id="{{yellow.id}}">
+            <li *ngFor="let yellow of match?.yellowst1" id="{{yellow.id}}">
               {{yellow?.name}} {{yellow?.surname}}
               <i (click)="deleteStatistic(yellow.id)" class="material-icons deleteItem">
                 close
@@ -90,12 +90,12 @@
       <div class="match__statistic">
         <div class="match__statistic--title">
           <h3>Red Cards</h3>
-          <app-player-search *ngIf="match?.c1Id" [matchId]="match?.matchId" [type]="'RED'" [countryId]="match?.c1Id"
+          <app-player-search *ngIf="match?.c1id" [matchId]="match?.matchid" [type]="'RED'" [countryId]="match?.c1id"
             (updateRecords)="update()"></app-player-search>
         </div>
         <div class="match__statisticContent">
           <ul>
-            <li *ngFor="let red of match?.redsT1" id="{{red.id}}">
+            <li *ngFor="let red of match?.redst1" id="{{red.id}}">
               {{red?.name}} {{red?.surname}}
               <i (click)="deleteStatistic(red.id)" class="material-icons deleteItem">
                 close
@@ -111,20 +111,20 @@
 
   <div class="match__team2">
     <div class="match__teamName">
-      <img class="match__teamImage" src="{{apiUrl}}/{{match?.c2Image}}" />
-      <h2>{{match?.c2}} ({{match?.p2Name}} {{match?.p2Surname}})</h2>
+      <img class="match__teamImage" src="{{apiUrl}}/{{match?.c2image}}" />
+      <h2>{{match?.c2}} ({{match?.p2name}} {{match?.p2surname}})</h2>
     </div>
     <div class="match__statistics">
 
       <div class="match__statistic">
         <div class="match__statistic--title">
           <h3>Goals</h3>
-          <app-player-search *ngIf="match?.c2Id" [matchId]="match?.matchId" [type]="'GOAL'" [countryId]="match?.c2Id"
+          <app-player-search *ngIf="match?.c2id" [matchId]="match?.matchid" [type]="'GOAL'" [countryId]="match?.c2id"
             (updateRecords)="update()"></app-player-search>
         </div>
         <div class="match__statisticContent">
           <ul>
-            <li *ngFor="let goal of match?.goalsT2" id="{{goal.id}}">
+            <li *ngFor="let goal of match?.goalst2" id="{{goal.id}}">
               {{goal?.name}} {{goal?.surname}}
               <i (click)="deleteStatistic(goal.id)" class="material-icons deleteItem">
                 close
@@ -137,12 +137,12 @@
       <div class="match__statistic">
         <div class="match__statistic--title">
           <h3>Injuries</h3>
-          <app-player-search *ngIf="match?.c2Id" [matchId]="match?.matchId" [type]="'INJ'" [countryId]="match?.c2Id"
+          <app-player-search *ngIf="match?.c2id" [matchId]="match?.matchid" [type]="'INJ'" [countryId]="match?.c2id"
             (updateRecords)="update()"></app-player-search>
         </div>
         <div class="match__statisticContent">
           <ul>
-            <li *ngFor="let injury of match?.injuriesT2" id="{{injury.id}}">
+            <li *ngFor="let injury of match?.injuriest2" id="{{injury.id}}">
               {{injury?.name}} {{injury?.surname}}
               <i (click)="deleteStatistic(injury.id)" class="material-icons deleteItem">
                 close
@@ -155,12 +155,12 @@
       <div class="match__statistic">
         <div class="match__statistic--title">
           <h3>Yellow Cards</h3>
-          <app-player-search *ngIf="match?.c2Id" [matchId]="match?.matchId" [type]="'YEL'" [countryId]="match?.c2Id"
+          <app-player-search *ngIf="match?.c2id" [matchId]="match?.matchid" [type]="'YEL'" [countryId]="match?.c2id"
             (updateRecords)="update()"></app-player-search>
         </div>
         <div class="match__statisticContent">
           <ul>
-            <li *ngFor="let yellow of match?.yellowsT2" id="{{yellow.id}}">
+            <li *ngFor="let yellow of match?.yellowst2" id="{{yellow.id}}">
               {{yellow?.name}} {{yellow?.surname}}
               <i (click)="deleteStatistic(yellow.id)" class="material-icons deleteItem">
                 close
@@ -173,12 +173,12 @@
       <div class="match__statistic">
         <div class="match__statistic--title">
           <h3>Red Cards</h3>
-          <app-player-search *ngIf="match?.c2Id" [matchId]="match?.matchId" [type]="'RED'" [countryId]="match?.c2Id"
+          <app-player-search *ngIf="match?.c2id" [matchId]="match?.matchid" [type]="'RED'" [countryId]="match?.c2id"
             (updateRecords)="update()"></app-player-search>
         </div>
         <div class="match__statisticContent">
           <ul>
-            <li *ngFor="let red of match?.redsT2" id="{{red.id}}">
+            <li *ngFor="let red of match?.redst2" id="{{red.id}}">
               {{red?.name}} {{red?.surname}}
               <i (click)="deleteStatistic(red.id)" class="material-icons deleteItem">
                 close

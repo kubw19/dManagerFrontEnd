@@ -1,0 +1,28 @@
+<app-add-box #add [boxName]="'New Player'">
+  <app-add-contest-player *ngIf="contestId" [contestId]="contestId" (cleanUp)="cleanUp" #contestBox>
+  </app-add-contest-player>
+</app-add-box>
+
+<div class="contestPlayers">
+  <div class="contestPlayers__header">
+    <h1 class="contestPlayers__title">Players</h1>
+    <img class="contestPlayers__addPlus" (click)="add.toggle()" src="assets/icons/plus.svg">
+  </div>
+  <p *ngIf="humanPlayers?.length == 0" class="contestPlayers__empty">No players added</p>
+  <ul>
+    <li class="contestPlayers__row" *ngFor="let player of humanPlayers">
+      <div class="contestPlayers__rowItem">
+        <p>{{player.login}} ({{player.firstName}} {{player.lastName}})</p>
+      </div>
+      <div class="contestPlayers__rowItem">
+        <app-search-bar #bar (updateRecords)="updatePlayer($event, player.userId)" [placeholder]="'Team'"
+          [default]="player.countryId" [items]="countries"></app-search-bar>
+        <div class="contestPlayers__utils">
+          <div [inlineSVG]="'assets/icons/pencil.svg'" class="edit" (click)="bar.click()"></div>
+          <div [inlineSVG]="'assets/icons/remove.svg'" class="remove" (click)="delete(player?.humanPlayerId)"></div>
+          <div [ngClass]=" {'editLocked': editLocked}"> </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -19,4 +19,8 @@ export class PutService {
     return this.http.put<Object>(environment.apiUrl + "/matches.php", options)
   }
 
+  putJson(url: string, json: Object):Observable<Object>{
+    return this.http.put<Object>(environment.apiUrl + url, json)
+  }
+
 }

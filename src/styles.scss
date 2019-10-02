@@ -1,13 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
 
-body{
-    margin: 0;
-    background-color: #ECEFF1;
+body {
+  margin: 0;
+  background-color: #eceff1;
 }
 
-a{
-    text-decoration: none;
-    color: black;
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.remove {
+  cursor: pointer;
+}
+
+.remove svg {
+  width: 13px;
+  height: 13px;
+  fill: rgb(156, 156, 156);
+  transition: all ease 0.5s;
+}
+
+.remove svg:hover {
+  fill: rgb(252, 122, 122);
+}
+
+.edit {
+  cursor: pointer;
+}
+
+.edit svg {
+  width: 13px;
+  height: 13px;
+  fill: rgb(156, 156, 156);
+  transition: all ease 0.5s;
+}
+
+.edit svg:hover {
+  fill: rgb(252, 122, 122);
+}
+
+
+.information{
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  margin: 10px;
+  padding: 0;
+}
+
+.information svg {
+  width: 30px;
+  height: 30px;
+  fill: rgb(253, 125, 125);
+}
+
+
+.editLocked {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  cursor: not-allowed;
+}
+
+.empty {
+  text-align: center;
+  margin: 20px;
+  color: #cccccc;
 }

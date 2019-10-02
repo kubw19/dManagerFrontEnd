@@ -1,0 +1,59 @@
+.contestPlayers {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  &__title {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  &__header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 60px;
+  }
+
+  &__addPlus {
+    cursor: pointer;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 40px;
+    box-sizing: border-box;
+    border-bottom: 1px #eee solid;
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    margin: 20px;
+    color: #cccccc;
+  }
+
+  &__rowItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-right: 1px #eee solid;
+    position: relative;
+    &:last-child {
+      border: none;
+    }
+  }
+
+  &__utils{
+    position: absolute;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  }
+}

@@ -1,0 +1,56 @@
+.addForm{
+    display: flex;
+    align-items: center; 
+    position: relative;
+    width: 100%;
+
+}
+
+.addForm input{
+    margin: 0 auto;
+    width: 188px;
+    border: none;
+    background: transparent;
+    text-align: center;
+}
+
+
+.hints{
+    position: absolute;
+    top: 24px;
+    width: 190px;
+    left: 50%;
+    max-height: 100px;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+    z-index: 20;
+    border: 1px solid black;
+}
+
+.addForm button{
+    background: none;
+    border: none;
+    height: auto;
+    height: 25px;
+    width: 50px;
+}
+
+.buttonActive:hover{
+    cursor: pointer;
+}
+
+.hints ul{
+    margin: 3px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.hints ul li{
+    padding: 3px;
+    //border-bottom: 1px solid;
+    border-color: rgb(182, 182, 182);
+}
+
+.hints ul li:hover{
+    cursor: pointer;
+}

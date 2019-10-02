@@ -1,0 +1,11 @@
+<div class="content__bars">
+    <div *ngIf="incorrectData" class="content__error"><span>Please enter correct data!</span></div>
+    <form #addForm="ngForm" [formGroup]="newPlayerForm" class="content__rows">
+      <label for="team1">Player</label>
+      <select #team1 id="userId" formControlName="userId" type="text" placeholder="Username">
+        <option *ngFor="let user of users" value="{{user?.userId}}">{{user?.login}}</option>
+      </select>
+      <button (click)="addToDB()">Add</button>
+    </form>
+    <div class="content__cup"><img src="assets/icons/cup.svg" /></div>
+  </div>

@@ -1,6 +1,9 @@
 <div *ngIf="!logged && checkPerformed" class="loginWindow">
-  <p *ngIf="expired">Wygasła</p>
   <div class="loginBox">
+    <div *ngIf="expired" class="loginBox__expired">
+      <div class="information" [inlineSVG]="'assets/icons/information.svg'"></div>
+      <p>Your session has expired</p>
+    </div>
     <h1>Hello!</h1>
     <p class="loginBox__info">You must login to continue.</p>
     <form action="#" class="loginBox__form">

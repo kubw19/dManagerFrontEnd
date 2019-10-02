@@ -30,7 +30,7 @@ export class PhasesComponent implements OnInit {
 
   delete(id:number, name: string){
     if(confirm("Are you sure to delete phase " + name + "?")){
-      this.deleteService.delete(id, "/phases.php").subscribe(data => this.update())
+      this.deleteService.delete(id, "/phases.php").subscribe(data => this.comm.changeMessage("updateData"))
     }
   }
 }

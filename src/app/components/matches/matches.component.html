@@ -1,5 +1,5 @@
 <app-add-box #add [boxName]="'New Match'">
-  <app-add-match [groupId]="groupId" (cleanUp)="cleanUp" #contestBox></app-add-match>
+  <app-add-match *ngIf="contestId" [contestId]="contestId" [groupId]="groupId" (cleanUp)="cleanUp" #contestBox></app-add-match>
 </app-add-box>
 <div style="position: relative;" [ngClass]="{'background': separate}">
   <div class="matches">
@@ -10,16 +10,16 @@
     <p *ngIf="matches?.length == 0" class="matches__empty">No matches</p>
   </div>
   <ul>
-    <a *ngFor="let match of matches" href="/match/{{match?.matchId}}">
+    <a *ngFor="let match of matches" href="/match/{{match?.matchid}}">
       <li class="match">
         <div class="match__team">
           <p>{{match?.c1}}</p>
         </div>
         <div class="match__score">
-          <img class="match__image" src="{{apiUrl}}/{{match?.c1Image}}" />
-          <span *ngIf="match.played == 1">{{match?.goalsD1}} - {{match?.goalsD2}}</span>
+          <img class="match__image" src="{{apiUrl}}/{{match?.c1image}}" />
+          <span *ngIf="match.played == 1">{{match?.goalsd1}} - {{match?.goalsd2}}</span>
           <span *ngIf="match.played == 0">X - X</span>
-          <img class="match__image" src="{{apiUrl}}/{{match?.c2Image}}" />
+          <img class="match__image" src="{{apiUrl}}/{{match?.c2image}}" />
         </div>
         <div class="match__team">
           <p>{{match?.c2}}</p>

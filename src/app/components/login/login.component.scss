@@ -1,86 +1,95 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
-.loginWindow{
-    background-color: rgb(238, 238, 238);
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.loginWindow {
+  background-color: rgb(238, 238, 238);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.loginBox{
-    position: relative;
-    height: 400px;
-    width: 350px;
-    background-color: white;
-    border-radius: 10px;
-    font-size: 30px;
-    font-family: 'Lato', sans-serif;
+.loginBox {
+  position: relative;
+  height: 400px;
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 30px;
+  font-family: "Lato", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0px 0px 14px -8px rgba(0, 0, 0, 0.75);
+  h1 {
+    margin-top: 5px;
+    margin-bottom: 0px;
+  }
+
+  &__info {
+    margin: 30px 0;
+    color: rgb(223, 223, 223);
+    font-size: 25px;
+  }
+  &__form {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    //box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    box-shadow: 0px 0px 14px -8px rgba(0, 0, 0, 0.75);
-    h1{
-        margin-top: 5px;
-        margin-bottom: 0px;
-    }
+    flex-direction: column;
+  }
 
-    &__info{
-        margin: 30px 0;
-        color: rgb(223, 223, 223);
-        font-size: 25px;        
-    }
-    &__form{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
+  &__input {
+    font-size: 15px;
+    width: 180px;
+    padding: 5px;
+    height: 25px;
+    border: none;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px black;
+    transition: 0.5s all;
 
-    &__input{
-        font-size: 15px;
-        width:180px;
-        padding: 5px;
-        height: 25px;
-        border: none;
-        background-color: rgb(250, 250, 250);
-        border-radius: 10px;
-        margin-bottom: 20px;
-        border-bottom: 1px black;
-        transition: 0.5s all;
-
-        &:focus{
-            outline: none;
-            background-color: rgb(255, 255, 255);            
-            border-bottom: 1px outset gainsboro;
-            border-radius: 0;
-        }
+    &:focus {
+      outline: none;
+      background-color: rgb(255, 255, 255);
+      border-bottom: 1px outset gainsboro;
+      border-radius: 0;
     }
+  }
 
-    &__button{
-        margin-top: 30px;
-        background-color: rgb(94, 201, 108);
-        color: white;
-        width: 190px;
-        height: 30px;
-        border: none;
-        border-radius: 15px;
-        transition: 0.5s all;
-        font-size: 15px;
+  &__button {
+    margin-top: 30px;
+    background-color: rgb(94, 201, 108);
+    color: white;
+    width: 190px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    transition: 0.5s all;
+    font-size: 15px;
 
-        &:hover{
-            cursor: pointer;
-            background-color: rgb(166, 228, 174);
-        }
-
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(166, 228, 174);
     }
-    &__incorrectData{
-        position: absolute;
-        bottom: 105px;
-        color: red;
-        font-size: 15px;
-    }
+  }
+  &__incorrectData {
+    position: absolute;
+    bottom: 105px;
+    color: red;
+    font-size: 15px;
+  }
+
+  &__expired {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(253, 125, 125);
+    margin-bottom: 15px 0;
+  }
 }

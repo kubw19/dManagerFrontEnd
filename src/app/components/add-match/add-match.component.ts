@@ -15,6 +15,7 @@ import { Contest } from '../../classes/Contest';
 export class AddMatchComponent implements OnInit {
   @ViewChild('add', {static: false}) addBox: ElementRef
   @Input() groupId: number
+  @Input() contestId: number
   constructor(private comm: ComunicationService, private getService: GetService, private postService: PostService) { }
   message: string
   countries: Object[]
@@ -27,11 +28,14 @@ export class AddMatchComponent implements OnInit {
 
   ngOnInit() {
     this.comm.currentMessage.subscribe(message => this.processMessage(message))
-    this.getService.getCountries().subscribe(countries => {this.countries = countries})
+    this.getCountries()
   }
-
+  getCountries(){
+    this.getService.getCountriesAtContest(this.contestId).subscribe(countries => {this.countries = countries})
+  }
   processMessage(message){
     if(message=='cleanUp')this.cleanUp()
+    if(message=='updateData')this.getCountries()
   }
 
   addResponse(message){

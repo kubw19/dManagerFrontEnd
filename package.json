@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "~8.0.2",
     "@angular/router": "~8.0.2",
     "core-js": "^2.5.4",
+    "g": "^2.0.1",
+    "ng-inline-svg": "^9.0.1",
     "ngx-cookie-service": "^2.2.0",
     "rxjs": "~6.5.2",
     "ts-md5": "^1.2.6",
