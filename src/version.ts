@@ -1,3 +1,3 @@
 export const version = {
-number: '0.1.1ce'
+number: '0.1.1cf'
 };
