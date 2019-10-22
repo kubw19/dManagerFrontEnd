@@ -1,7 +1,9 @@
 <app-add-box #add [boxName]="'New Match'">
-  <app-add-match *ngIf="contestId" [contestId]="contestId" [groupId]="groupId" (cleanUp)="cleanUp" #contestBox></app-add-match>
+  <app-add-match *ngIf="contestId" [contestId]="contestId" [groupId]="groupId" (cleanUp)="cleanUp" #contestBox>
+  </app-add-match>
 </app-add-box>
 <div style="position: relative;" [ngClass]="{'background': separate}">
+  <div *ngIf="separate" onclick="window.history.go(-1); return false;" class="backButton">Back</div>
   <div class="matches">
     <div *ngIf="separate" class="matches__header">
       <h1 class="matches__title">Match list</h1>
@@ -10,7 +12,7 @@
     <p *ngIf="matches?.length == 0" class="matches__empty">No matches</p>
   </div>
   <ul>
-    <a *ngFor="let match of matches" href="/match/{{match?.matchid}}">
+    <a *ngFor="let match of matches" href="{{frontUrl}}/match/{{match?.matchid}}">
       <li class="match">
         <div class="match__team">
           <p>{{match?.c1}}</p>

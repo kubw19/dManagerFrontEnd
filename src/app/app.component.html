@@ -2,12 +2,12 @@
     <div class="app">
         <div class="header">
             <div class="header__content">
-                <a href="/">
+                <a class="link" (click)="gotoHomepage()">
                     <img src="assets/images/Logo.svg" />
                 </a>
                 <div class="rightBar">
-                    <p class="hello">Hello, Tom!<i class="material-icons">keyboard_arrow_down</i></p>
-                    <p class="today">Today is Thursday, 11.07.2019</p>
+                    <p class="hello">Hello, {{user?.firstName}}!<i class="material-icons">keyboard_arrow_down</i></p>
+                    <p class="today">Today is {{date | date:'EEEE, dd.MM.yyyy'}}  <span class="rightBar__logout" (click)="logout()">Logout</span></p>
                 </div>
             </div>
         </div>
@@ -17,5 +17,4 @@
     </div>
     <app-footer></app-footer>
 </div>
-
-<app-login></app-login>
+<app-login [recoveryHash]="recoveryHash"></app-login>

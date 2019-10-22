@@ -1,7 +1,8 @@
 <div class="contest__background">
+  <a onclick="window.history.go(-1); return false;" class="backButton">Back</a>
   <h1 class="contest__name">{{contest.contestName}}</h1>
   <div class="contest__basicData">
-    <p>Date<br> <a class="contest__basicData--data">{{contest.date}}</a></p>
+    <p>Date<br> <a class="contest__basicData--data">{{contest.date | date:'dd.MM.yyyy'}}</a></p>
     <p>Stadium<br> <a class="contest__basicData--data">{{contest.stadiumName}}</a></p>
     <p>Top Scorer<br>
       <a *ngIf="contest.shootKing != null" class="contest__basicData--data">
@@ -17,6 +18,7 @@
   </div>
   <app-phases *ngIf="contest.contestId" [contestId]="contest.contestId"></app-phases>
   <app-contest-players [contest]="contest" *ngIf="contestId" [contestId]="contestId"></app-contest-players>
+  <app-contest-users [users]="contest.users" *ngIf="contestId" [contestId]="contestId" ></app-contest-users>
   <div class="contest__delete">
     <p (click)="deleteContest()">Delete contest</p>
   </div>

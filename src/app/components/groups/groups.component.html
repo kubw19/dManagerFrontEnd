@@ -1,5 +1,5 @@
 <app-add-box #add [boxName]="'New Group'">
-  <app-add-group [phaseId]="phaseId" (cleanUp)="cleanUp"></app-add-group>
+  <app-add-group [phaseId]="phaseId"></app-add-group><!--(cleanUp)="cleanUp"-->
 </app-add-box>
 <p class="no_group" *ngIf="groups?.length == 0">No groups available</p>
 <div class="groups__group" *ngFor="let group of groups">

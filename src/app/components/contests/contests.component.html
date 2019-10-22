@@ -15,7 +15,7 @@
             </div>
             <ul>
                 <li>
-                    <p class="contest__date"><span class="contest--bold">Date:</span> {{contest?.date}}</p>
+                    <p class="contest__date"><span class="contest--bold">Date:</span> {{contest?.date | date:'dd.MM.yyyy'}}</p>
                 </li>
                 <li>
                     <p class="contest__stadium"><span class="contest--bold">Stadium:</span> {{contest?.stadiumName}}</p>
@@ -42,8 +42,8 @@
                     </div>
                 </li>
             </ul>
-            <div class="contest__state contest__state--finished" *ngIf="contest.finished==1">Zakonczony</div>
-            <div class="contest__state contest__state--unfinished" *ngIf="contest.finished==0">Trwa</div>
+            <div class="contest__state contest__state--finished" *ngIf="contest.finished==1">Finished</div>
+            <div class="contest__state contest__state--unfinished" *ngIf="contest.finished==0">Ongoing</div>
         </a>
     </div>
 </div>

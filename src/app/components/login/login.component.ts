@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from '../../services/login.service'
 import { Router } from "@angular/router"
 import { CookieService } from 'ngx-cookie-service';
+import { PutService } from '../../services/put.service';
+import {version} from '../../../version'
 
 
 @Component({
@@ -10,7 +12,9 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginPlaceholder: string = "Login"
+  public versionNumber: string
+  @Input() recoveryHash = null
+  loginPlaceholder: string = "Email"
   passwordPlaceholder: string = "Password"
   loginValue: string = null
   passwordValue: string = null
@@ -18,43 +22,41 @@ export class LoginComponent implements OnInit {
   incorrectData: boolean = null
   logged: boolean = false
   checkPerformed: boolean = false
-  expired: boolean = false
+  information: string = ""
+  informationType: string = "success"
 
-  constructor(private loginService: LoginService, private router: Router, private cookie: CookieService) { }
+  forgotten: boolean = false;
+
+  constructor(private loginService: LoginService, private router: Router, private cookie: CookieService, private putService: PutService) { }
 
   ngOnInit() {
+    this.versionNumber = version.number
     this.loginService.checkLogin()
     this.loginService.checkLogged.subscribe(data => this.logged = (data == "true"))
     this.loginService.checkPerformed.subscribe(data => this.checkPerformed = (data == "true"))
-    this.loginService.expiredInfo.subscribe(data => this.expired = data)
+    this.loginService.incorrectLogin.subscribe(data => this.incorrectData = data)
+    this.loginService.expiredInfo.subscribe(data => {
+      if(data){
+        this.information = "Your session has expired"
+        this.informationType = "warning"
+      }
+    })
   }
 
   validateUser(): void {
-    this.loginService.login(this.loginValue, this.passwordValue).subscribe((data) => {
-      console.log(data)
-      if (data.authorized == true) {
-        //t//his.loginService.logged = true;
-        localStorage.setItem("apiKey", data.apiKey);
-        localStorage.setItem("token", this.loginService.md5(data.apiKey + data.authKey));
-        localStorage.setItem("expire", data.expire);
-        this.loginService.changeLoggedState("true")
-        this.loginService.changeCheckPerformedState("true")
-        setInterval(() => {this.loginService.checkLogin()}, 1000 * 10)
-      }
-    },
-      (error) => {
-        console.log(error)
-        if (error.error.authorized == false) {
-          this.loginService.changeCheckPerformedState("true")
-          if (error.error.message == "INCORRECT_DATA" || error.error.message == "WRONG_EMAIL" || error.error.message == "WRONG_PASSWORD") {
-            this.incorrectData = true;
-          }
-          else {
-            this.incorrectData = false;
-          }
-        }
-      });
+    this.loginService.login(this.loginValue, this.passwordValue);
+  }
 
+  passwordForgotten():void{
+    this.forgotten = true;
+  }
+
+  sendPasswordRecovery(): void{
+    this.information = "Password recovery email sent"
+    this.informationType = "success"
+    this.forgotten = false
+
+    this.putService.recoverPassword(this.loginValue).subscribe()
   }
 
 }

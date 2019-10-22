@@ -5,6 +5,7 @@ import { Contest } from '../classes/Contest'
 import {Stadium} from '../classes/Stadium'
 import {environment} from '../../environments/environment'
 import { Player } from '../classes/Player';
+import { User } from '../classes/User';
 
 @Injectable({
   providedIn: 'root'
@@ -67,10 +68,35 @@ export class GetService {
     return this.http.get<Object[]>(environment.apiUrl + "/users.php");
   }
 
+  getUser(userId: number):Observable<User>{
+    return this.http.get<User>(environment.apiUrl + "/users.php?userId=" + userId);
+  }
+
 }
 export class Match{
   played: Boolean
   contestId: number
+  contest
+  phase
+  group
+  c1image
+  c1
+  p1name
+  p1surname
+  c1id
+  injuriest1
+  yellowst1
+  redst1
+  c2image
+  c2
+  p2name
+  p2surname
+  c2id
+  injuriest2
+  yellowst2
+  redst2
+  goalst1
+  goalst2
 }
 
 export class Country{

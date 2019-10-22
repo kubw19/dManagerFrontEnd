@@ -1,20 +1,39 @@
 <div *ngIf="!logged && checkPerformed" class="loginWindow">
   <div class="loginBox">
-    <div *ngIf="expired" class="loginBox__expired">
-      <div class="information" [inlineSVG]="'assets/icons/information.svg'"></div>
-      <p>Your session has expired</p>
+    <div *ngIf="!recoveryHash && !forgotten">
+      <div *ngIf="information?.length > 0" class="loginBox__expired">
+        <div class="information {{informationType}}" [inlineSVG]="'assets/icons/information.svg'"></div>
+        <p class="{{informationType}}">{{information}}</p>
+      </div>
+      <h1>Hello!</h1>
+      <p class="loginBox__info">You must login to continue.</p>
+      <form *ngIf="!forgotten" action="." class="loginBox__form">
+        <input name='loginInput' type="text" [(ngModel)]="loginValue" placeholder={{loginPlaceholder}}
+          (focus)="loginPlaceholder=''" (focusout)="loginPlaceholder='Email'"
+          class="loginBox__input loginBox__input--login" required autocomplete="email">
+        <input name='passwordInput' type="password" [(ngModel)]="passwordValue" placeholder={{passwordPlaceholder}}
+          (focus)="passwordPlaceholder=''" (focusout)="passwordPlaceholder='Password'"
+          class="loginBox__input loginBox__input--password" required autocomplete="password">
+        <div class="loginBox__incorrectData">
+          <span *ngIf="!incorrectData">&nbsp;</span>
+          <span *ngIf="incorrectData">Incorrect login data!</span>
+        </div>
+        <button class="loginBox__button" (click)="validateUser()">Login</button>
+        <a (click)="passwordForgotten()" class="loginBox__passwordForgotten">Password forgotten</a>
+      </form>
     </div>
-    <h1>Hello!</h1>
-    <p class="loginBox__info">You must login to continue.</p>
-    <form action="#" class="loginBox__form">
-      <input name='loginInput' type="text" [(ngModel)]="loginValue" placeholder={{loginPlaceholder}}
-        (focus)="loginPlaceholder=''" (focusout)="loginPlaceholder='Login'"
-        class="loginBox__input loginBox__input--login">
-      <input name='passwordInput' type="password" [(ngModel)]="passwordValue" placeholder={{passwordPlaceholder}}
-        (focus)="passwordPlaceholder=''" (focusout)="passwordPlaceholder='Password'"
-        class="loginBox__input loginBox__input--password">
-      <p *ngIf="incorrectData" class="loginBox__incorrectData">Incorrect login data!</p>
-      <button class="loginBox__button" (click)="validateUser()">Login</button>
-    </form>
+    <app-change-password [recoveryHash]="recoveryHash" *ngIf="recoveryHash"></app-change-password>
+
+    <div *ngIf="forgotten && !recoveryHash">
+      <h1>Password Reset</h1>
+      <p class="loginBox__info">Please enter your email</p>
+      <form action="." class="loginBox__form">
+        <input name='loginInput' type="text" [(ngModel)]="loginValue" placeholder={{loginPlaceholder}}
+          (focus)="loginPlaceholder=''" (focusout)="loginPlaceholder='Email'"
+          class="loginBox__input loginBox__input--login" required autocomplete="email">
+        <button type="button" class="loginBox__button" (click)="sendPasswordRecovery()">Continue</button>
+      </form>
+    </div>
   </div>
+  <span class="version">{{versionNumber}}</span>
 </div>

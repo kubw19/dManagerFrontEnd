@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  api: 'http://192.168.0.59/dManagerBackend' 
+  apiUrl: 'http://jakubwlodarczyk.pl/dManagerAPI',
+  frontUrl: 'http://jakubwlodarczyk.pl/dManager'
 };

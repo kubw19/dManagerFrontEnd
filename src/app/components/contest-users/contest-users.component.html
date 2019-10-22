@@ -1,0 +1,24 @@
+<app-add-box #add [boxName]="'New Crew Member'">
+  <app-add-contest-users *ngIf="contestId" [contestId]="contestId" (cleanUp)="cleanUp" #contestBox>
+  </app-add-contest-users>
+</app-add-box>
+
+<div class="contestUsers">
+  <div class="contestUsers__header">
+    <h1 class="contestUsers__title">Crew</h1>
+    <img class="contestUsers__addPlus" (click)="add.toggle()" src="assets/icons/plus.svg">
+  </div>
+  <ul>
+    <li class="contestUsers__row" *ngFor="let user of users">
+      <div class="contestUsers__rowItem">
+        <p>{{user.login}} ({{user.firstName}} {{user.lastName}})</p>
+      </div>
+      <div class="contestUsers__rowItem">
+        <p>{{user.contestsRole}}</p>
+        <div class="contestUsers__utils">
+          <div [inlineSVG]="'assets/icons/remove.svg'" class="remove" (click)="delete(user?.contestsUsersId)"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -28,6 +28,10 @@ import { ContestPlayersComponent } from './components/contest-players/contest-pl
 import { SearchBarComponent } from './components/common/search-bar/search-bar.component';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { AddContestPlayerComponent } from './components/contest-players/add-contest-player/add-contest-player.component';
+import { ContestUsersComponent } from './components/contest-users/contest-users.component';
+import { AddContestUsersComponent } from './components/contest-users/add-contest-users/add-contest-users.component';
+import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
+import { ChangePasswordComponent } from './components/login/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,11 @@ import { AddContestPlayerComponent } from './components/contest-players/add-cont
     FooterComponent,
     ContestPlayersComponent,
     SearchBarComponent,
-    AddContestPlayerComponent
+    AddContestPlayerComponent,
+    ContestUsersComponent,
+    AddContestUsersComponent,
+    PasswordRecoveryComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

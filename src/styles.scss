@@ -2,6 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=Russo+One&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
 
+.link{
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   background-color: #eceff1;
@@ -51,10 +55,25 @@ a {
   padding: 0;
 }
 
-.information svg {
+.success{
+	color: #5ec96c;
+	
+}
+
+.warning{
+	color: rgb(253, 125, 125);
+}
+
+.warning svg {
   width: 30px;
   height: 30px;
   fill: rgb(253, 125, 125);
+}
+
+.success svg{
+  width: 30px;
+  height: 30px;
+  fill: #5ec96c;
 }
 
 
@@ -69,4 +88,11 @@ a {
   text-align: center;
   margin: 20px;
   color: #cccccc;
+}
+
+.backButton{
+  display: block;
+  color: rgb(224, 224, 224);
+  margin:10px 0;
+  cursor: pointer;
 }

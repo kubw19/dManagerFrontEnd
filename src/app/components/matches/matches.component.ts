@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./matches.component.scss']
 })
 export class MatchesComponent implements OnInit {
+  frontUrl: string
   @ViewChild('add', { static: false }) addButton
   @Input() groupId: number
   group: Object;
@@ -38,6 +39,7 @@ export class MatchesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.frontUrl = environment.frontUrl
     if (!this.groupId) {
       this.route.params.subscribe(params => this.groupId = params.id)
       this.separate = true
@@ -77,6 +79,10 @@ export class MatchesComponent implements OnInit {
         this.router.navigate(['/contest/' + this.phase[0].contestId])
       })
     }
+  }
+
+  goToMatch(id){
+    this.router.navigate(["/match/"+id]);
   }
 
 }

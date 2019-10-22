@@ -7,12 +7,17 @@ import { ContestsComponent } from './components/contests/contests.component'
 import { StadiumsComponent } from './components/menu/stadiums/stadiums.component'
 import { MatchesComponent } from './components/matches/matches.component';
 import { MatchComponent } from './components/match/match.component';
+import {PasswordRecoveryComponent} from './components/password-recovery/password-recovery.component'
 
 const routes: Routes = [
   {
     path: '', 
     redirectTo: '/dashboard/contests',
     pathMatch: 'full'
+  },
+  {
+    path: 'recoverPassword/:hash', component: PasswordRecoveryComponent
+
   },
   {
     path: 'dashboard',
@@ -32,7 +37,7 @@ const routes: Routes = [
     path: 'group/:id', component: MatchesComponent
   },
   {
-    path: 'match/:id', component: MatchComponent
+    path: 'match/:id', component: MatchComponent, pathMatch: "full",
   }
 ];
 

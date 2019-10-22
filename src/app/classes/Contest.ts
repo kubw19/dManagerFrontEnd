@@ -5,4 +5,6 @@ export class Contest{
     finished: boolean
     shootKing: object[]
     matchesCount: number
+    stadiumName: string
+    contestId: number
 }

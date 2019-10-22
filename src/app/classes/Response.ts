@@ -5,4 +5,6 @@ export class Response{
     apiKey: string
     authKey: string
     expire: string
+    userId: number
+    sessionId: number
 }
