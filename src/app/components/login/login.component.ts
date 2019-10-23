@@ -4,6 +4,7 @@ import { Router } from "@angular/router"
 import { CookieService } from 'ngx-cookie-service';
 import { PutService } from '../../services/put.service';
 import {version} from '../../../version'
+import { GetService } from 'src/app/services/get.service';
 
 
 @Component({
@@ -13,6 +14,7 @@ import {version} from '../../../version'
 })
 export class LoginComponent implements OnInit {
   public versionNumber: string
+  public apiVersionNumber: string
   @Input() recoveryHash = null
   loginPlaceholder: string = "Email"
   passwordPlaceholder: string = "Password"
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   forgotten: boolean = false;
 
-  constructor(private loginService: LoginService, private router: Router, private cookie: CookieService, private putService: PutService) { }
+  constructor(private loginService: LoginService, private router: Router, private cookie: CookieService, private putService: PutService, private getService: GetService) { }
 
   ngOnInit() {
     this.versionNumber = version.number
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
         this.informationType = "warning"
       }
     })
+    this.getService.getPublicInformations().subscribe(data => {this.apiVersionNumber = data.version;})
   }
 
   validateUser(): void {
