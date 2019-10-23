@@ -13,6 +13,10 @@ import { User } from '../classes/User';
 export class GetService {
   constructor(private http: HttpClient) { }
 
+  getPublicInformations():Observable<PublicInformation>{
+    return this.http.get<PublicInformation>(environment.apiUrl + "/publicInformation.php");
+  }
+
   getContests():Observable<Contest[]>{
     return this.http.get<Contest[]>(environment.apiUrl + "/contests.php");
   }
@@ -102,4 +106,8 @@ export class Match{
 export class Country{
   countryId: number
   name: String
+}
+
+export class  PublicInformation{
+  version: string
 }
