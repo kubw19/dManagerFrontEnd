@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, isDevMode } from '@angular/core';
 import { GetService } from '../../services/get.service';
 import { PutService } from '../../services/put.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -32,7 +32,7 @@ export class ContestComponent implements OnInit {
   }
 
   update() {
-    this.getService.getContest(this.contestId).subscribe(data => {this.contest = data[0]; this.played=this.contest.finished})
+    this.getService.getContest(this.contestId).subscribe(data => {this.contest = data[0]; this.played=!!+this.contest.finished})
   }
 
   deleteContest(): void {
