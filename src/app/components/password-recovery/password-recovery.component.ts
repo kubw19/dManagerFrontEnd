@@ -11,7 +11,6 @@ export class PasswordRecoveryComponent implements OnInit {
   constructor(private router: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.router.snapshot.params['hash']);
   }
 
 }

@@ -36,7 +36,6 @@ export class MatchComponent implements OnInit {
 
   update(): void {
     this.getService.getMatch(this.matchId).subscribe(data => { 
-      console.log(data)
       this.match = data[0]; 
       this.played = !!+this.match.played
       this.comm.changeMessage("updateData");

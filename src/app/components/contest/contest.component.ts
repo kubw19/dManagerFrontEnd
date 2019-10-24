@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { GetService } from 'src/app/services/get.service';
+import { GetService } from '../../services/get.service';
+import { PutService } from '../../services/put.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Contest } from 'src/app/classes/Contest';
+import { Contest } from '../../classes/Contest';
 import { ComunicationService } from '../../../services/comunication.service';
 import { DeleteService } from '../../services/delete.service';
 import { of } from 'rxjs';
@@ -13,7 +14,7 @@ import { of } from 'rxjs';
 })
 export class ContestComponent implements OnInit {
 
-  constructor(private getService: GetService, private route: ActivatedRoute, private comm: ComunicationService, private deleteService: DeleteService, private router: Router) { }
+  constructor(private putService: PutService, private getService: GetService, private route: ActivatedRoute, private comm: ComunicationService, private deleteService: DeleteService, private router: Router) { }
 
   processMessage(message: string): void {
     if (message == "updateData") {
@@ -21,6 +22,7 @@ export class ContestComponent implements OnInit {
     }
   }
 
+  public played: boolean
   contestId: number
   contest: Contest = new Contest();
   ngOnInit() {
@@ -30,7 +32,7 @@ export class ContestComponent implements OnInit {
   }
 
   update() {
-    this.getService.getContest(this.contestId).subscribe(data => this.contest = data[0])
+    this.getService.getContest(this.contestId).subscribe(data => {this.contest = data[0]; this.played=this.contest.finished})
   }
 
   deleteContest(): void {
@@ -41,6 +43,9 @@ export class ContestComponent implements OnInit {
         })
       }
     }
+  }
 
+  changeFinished(){
+    this.putService.changeFinished(this.played, this.contestId).subscribe()
   }
 }

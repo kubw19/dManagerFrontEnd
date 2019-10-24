@@ -19,6 +19,11 @@ export class PutService {
     return this.http.put<Object>(environment.apiUrl + "/matches.php", options)
   }
 
+  changeFinished(played: boolean, contestId: number): Observable<Object> {
+    let options = { "played": played, "contestId": contestId }
+    return this.http.put<Object>(environment.apiUrl + "/contests.php", options)
+  }
+
   putJson(url: string, json: Object): Observable<Object> {
     return this.http.put<Object>(environment.apiUrl + url, json)
   }
