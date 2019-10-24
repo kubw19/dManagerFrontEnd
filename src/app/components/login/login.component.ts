@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, isDevMode } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from '../../services/login.service'
 import { Router } from "@angular/router"
 import { CookieService } from 'ngx-cookie-service';
@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router, private cookie: CookieService, private putService: PutService, private getService: GetService) { }
 
   ngOnInit() {
-    alert(isDevMode())
     this.versionNumber = version.number
     this.loginService.checkLogin()
     this.loginService.checkLogged.subscribe(data => this.logged = (data == "true"))

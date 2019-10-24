@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, isDevMode } from '@angular/core';
 import { LoginService } from './services/login.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from './classes/User';
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     }
     this.loginService.user.subscribe(user => {
       this.user = user
-      console.log(user)
+      if (isDevMode()) console.log(user)
     })
   }
 
