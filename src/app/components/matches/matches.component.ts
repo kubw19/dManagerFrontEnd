@@ -54,7 +54,6 @@ export class MatchesComponent implements OnInit {
       Array.isArray(data) ? this.matches = data : this.matches = [];
     })
     this.getService.getGroup(this.groupId).subscribe(data => { this.group = data; this.getPhase() 
-   console.log(data)
   })
   }
 

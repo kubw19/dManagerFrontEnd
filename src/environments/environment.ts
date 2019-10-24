@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'http://192.168.0.59/dManagerBackend',
-  frontUrl: 'http://192.168.0.59:4200/dManager',
+  frontUrl: 'http://192.168.0.59:4200',
   baseHref: '/'
 };
 

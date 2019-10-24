@@ -3,8 +3,12 @@
     font-size: 2.5em;
     color: rgb(0, 0, 0);
     font-family: "Noto Sans KR", sans-serif;
+  }
+  &__played {
+    margin-top: 20px;
     margin-bottom: 50px;
   }
+
   &__background {
     background-color: #fff;
     //box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);

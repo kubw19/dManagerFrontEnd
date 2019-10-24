@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { Response } from '../classes/Response'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Observable, BehaviorSubject } from 'rxjs';
@@ -58,7 +58,7 @@ export class LoginService {
   login(email: string, password: string): void {
     let loginData = this.httpClient.post<Response>(environment.apiUrl + "/login.php", { "email": email, "password": this.md5(password) })
     loginData.subscribe(data => {
-      console.log(data)
+      if (isDevMode()) console.log(data)
       if (data.authorized == true) {
         localStorage.setItem("apiKey", data.apiKey);
         localStorage.setItem("token", this.md5(data.apiKey + data.authKey));
@@ -69,12 +69,12 @@ export class LoginService {
         this.sessionId = data.sessionId
         this.getService.getUser(this.userId).subscribe(user => {
           this.userSubject.next(user)
-          console.log(user)
+          if (isDevMode()) console.log(user)
         })
       }
     },
       (error) => {
-        console.log(error)
+        if (isDevMode()) console.log(error)
         if (error.error.authorized == false) {
           this.changeCheckPerformedState("true")
           if (error.error.message == "INCORRECT_DATA" || error.error.message == "WRONG_EMAIL" || error.error.message == "WRONG_PASSWORD") {
@@ -91,7 +91,7 @@ export class LoginService {
     if (localStorage.getItem("apiKey") && localStorage.getItem("token")) {
       this.httpClient.post<Response>(environment.apiUrl + "/login.php", { "apiKey": localStorage.getItem("apiKey"), "token": localStorage.getItem("token") }).subscribe(
         (data) => {
-          console.log(data)
+          if (isDevMode()) console.log(data)
           if (data.authorized == true) {
             this.logged.next("true")
             this.checkPerf.next("true")
@@ -99,13 +99,12 @@ export class LoginService {
             this.sessionId = data.sessionId
             this.getService.getUser(this.userId).subscribe(user => {
               this.userSubject.next(user)
-              console.log(user)
+              if (isDevMode()) console.log(user)
             })
           }
-          console.log(data)
         },
         (error) => {
-          console.log(error.error)
+          if (isDevMode()) console.log(error.error)
           //this.changeExpired(true)
           this.checkPerf.next("true")
           this.logged.next("false");
@@ -119,9 +118,9 @@ export class LoginService {
       this.logged.next("false");
     }
   }
-  
-  logout():void{
-    this.putService.putJson("/actions.php", {action: "logout", sessionId: this.sessionId}).subscribe(
+
+  logout(): void {
+    this.putService.putJson("/actions.php", { action: "logout", sessionId: this.sessionId }).subscribe(
       data => {
         localStorage.removeItem("apiKey");
         localStorage.removeItem("token");

@@ -45,7 +45,6 @@ export class AddContestUsersComponent implements OnInit {
     let formObj = this.newUserForm.getRawValue();
     formObj.contestId = this.contestId
     let serializedForm = JSON.stringify(formObj);
-    console.log(serializedForm)
     this.postService.postJSON(serializedForm, "/contestsUsers.php").subscribe(data => this.addResponse(data), err => { this.addResponse(err.error) });
 
   }
