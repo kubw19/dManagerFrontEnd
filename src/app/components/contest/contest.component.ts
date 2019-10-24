@@ -11,7 +11,7 @@ import { of } from 'rxjs';
   templateUrl: './contest.component.html',
   styleUrls: ['./contest.component.scss']
 })
-export class ContestComponent implements OnInit {
+export clas ContestComponent implements OnInit {
 
   constructor(private getService: GetService, private route: ActivatedRoute, private comm: ComunicationService, private deleteService: DeleteService, private router: Router) { }
 
