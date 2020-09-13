@@ -6,4 +6,4 @@ Tool for managing FIFA Championships written in Angular.
 Run via standard `ng serve`.
 
 You must provide instance of the backend from (this repository)[https://github.com/kubw19/dManagerAPI].
-Don't forget to update `environment.ts` before launching the app.
+<br>Don't forget to update `environment.ts` before launching the app.
